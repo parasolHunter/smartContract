@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../css/menu.css?v=20181022"/>
+<script
+  src="../js/jquery.transit.js"
+  type="text/javascript"
+  charset="utf-8"
+></script>
+<div id="selectWindow" ng-click="drop($event)">
+  <div class="content">
+  	<div class="txLogo flex justifyBetween">
+      <div class="logo">
+        <img src="../img/logo84.png">
+      </div>
+      <div ng-click="drop($event)" class="add">
+        <img src="../img/index/addIcon.png" />
+      </div>
+    </div>
+    <div class="navList">
+      <div class="item flex" ng-click="redirect(1)">
+        <img class="paddingr20" src="../img/index/jyIcon.png" />
+        <div data-localize="inc_slect.msg1" >主页</div>
+      </div>
+      <!-- <div class="item flex" ng-click="redirect(2)">
+        <img class="paddingr20" src="../img/index/syIcon.png" />
+        <div data-localize="inc_slect.msg2">玩法说明</div>
+      </div> -->
+      <div class="item flex" ng-click="redirect(3)">
+        <img class="paddingr20" src="../img/index/czIcon.png" />
+        <div data-localize="inc_slect.msg3">我的推荐</div>
+      </div>
+      <div class="item flex" ng-click="redirect(4)">
+        <img class="paddingr20" src="../img/index/zzIcon.png" />
+        <div data-localize="inc_slect.msg4">收益记录</div>
+      </div>
+      <div class="item flex" ng-click="redirect(5)">
+        <img class="paddingr20" src="../img/index/tbIcon.png" />
+        <div data-localize="inc_slect.msg5">参与记录</div>
+      </div>
+      <!-- <div class="item flex" ng-click="redirect(6)">
+        <img class="paddingr20" src="../img/index/szIcon.png" />
+        <div data-localize="inc_slect.msg9">兑换</div>
+      </div> -->
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+    $(".content").height('100%');
+    $(".add img")
+        .stop()
+        .transition({ transform: "rotate(45deg)" });
+  });
+  var appElement = document.querySelector("[ng-controller=myContr]");
+  var $scope = angular.element(appElement).scope();
+  var state = false;
+	var touchState = false;
+	$scope.drop = function(e) {
+    e.stopPropagation();
+
+    if(isWeb() == 1){
+      return
+    }
+
+		if(!state){
+        state = true;
+        touchState = true;
+        
+        $("#main").transition({
+            "scale":"0.82",
+            // "margin-right":"70%"
+        }).parent().find("#selectWindow").transition({
+            right:"0",
+            "scale":"1"
+        });
+        /* setTimeout(function(){
+          $("#main").bind("click",runMenu)
+        },100) */
+    }else{
+        state = false;
+        touchState = false;
+        $("#main").transition({
+            scale:"1",
+            // "margin-right":"0"
+        }).parent().find("#selectWindow").transition({
+            "right":"-100%",
+            "scale":"0.82"
+        });
+        /* $("#main").unbind("click",runMenu) */
+    }
+    /* $("#selectWindow").slideToggle(function() {
+      if ($("#selectWindow").is(":hidden") == false) {
+        $(".add img")
+          .stop()
+          .transition({ transform: "rotate(45deg)" });
+      } else {
+        $(".add img")
+          .stop()
+          .transition({ transform: "rotate(0deg)" });
+      }
+    }); */
+  };
+
+  $scope.redirect = function(index) {
+    switch (Number(index)) {
+      case 1:
+        location.href = "home.html";
+        break;
+      case 2:
+        location.href = "#remark";
+        break;
+      case 3:
+        location.href = "recommend.html";
+        break;
+      case 4:
+        location.href = "incomes.html";
+        break;
+      case 5:
+        location.href = "joins.html";
+        break;
+      case 6:
+        location.href = "openset.html";
+        break;
+      default:
+        console.log("默认");
+    }
+  };
+</script>

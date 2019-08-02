@@ -1,0 +1,113 @@
+/*********配色*************/
+.color-orange{
+	color: #f18b07;
+}
+.color-red{
+	color: #f46464;
+}
+.color-white{
+	color: #FFFFFF;
+}
+.bgcolor-white{
+	background: #FFFFFF;
+}
+.bgcolor-red{
+	background: #f46464;
+}
+.color-blue{
+	color: #073050;
+}
+.bgcolor-blue{
+	background: #073050;
+}
+.bordcolor-red{
+	border: 1px solid #f46464;
+}
+.bordcolor-blue{
+	border: 1px solid #073050;
+}
+/********自适应弹窗**************/
+.mask{
+	display: none;
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,0.5);
+}
+.maskXieyi{
+	display: none;
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,0.5);
+}
+.dialog1{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 3.88rem;
+	width: 8.506rem;
+	margin-top: -1.94rem;
+	margin-left: -4.253rem;
+	background: #fff;
+	border: 1px solid #e6e6e6;
+	border-radius: 12px;
+}
+.dialog1 .close{
+	position: absolute;
+	right: 0.3rem;
+	top: 0.3rem;
+}
+.dialog1 .close img{
+	display: block;
+	width: 0.426rem;
+}
+.dialog1 .desc{
+	position: absolute;
+	top: 0.666rem;
+	width: 8.506rem;
+	text-align: center;
+	font-size: 0.4rem;
+	color: #333;
+}
+.dialog1 h3{
+	padding-top: 0.666rem;
+	width: 8.506rem;
+	text-align: center;
+	font-size: 0.4rem;
+	color: #333;
+}
+.dialog1 p{
+	width: 8.506rem;
+	height: 1rem;
+	line-height: 1rem;
+	color: #333;
+	font-size: 0.4rem;
+	text-align: center;
+}
+.dialog1 .diaConfirm{
+	position: absolute;
+	bottom: 0.4rem;
+	left: 0.84rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	width: 2.933rem;
+	border: none;
+	border-radius: 10px;
+	color: #fff;
+}
+.dialog1 .back{
+	position: absolute;
+	bottom: 0.4rem;
+	right: 0.84rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	width: 2.933rem;
+	border-radius: 10px;
+}  

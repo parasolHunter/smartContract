@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/dialog.css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/dialog.js"></script>
+	</head>
+	<body>
+	</body>
+	<script>
+	$(function(){
+		blackDialog.show(function(){
+				//按钮一事件
+			},function(){
+				//按钮二事件
+			}
+			,'订单已经提交，如无误请点击“确认提交”，最终成交该订单，若需修改请点击“返回订单查看”'
+			,'确认提交'
+			,'返回订单'
+			,'skin-default'
+		);
+	})
+	</script>
+</html>

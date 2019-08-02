@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>			
+		<title>DappCatalog</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+		<meta content="yes" name="apple-touch-fullscreen">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="cache-control" content="no-siteapp">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<!-- 公共文件 -->
+		<script src="../js/public/common.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	</head>
+	<body ng-app="myApp"  ng-controller="myContr">
+		<!-- 引入下拉窗口 -->
+		<div ng-include="'../view/inc_menu.html'"></div>
+		<div id="main">
+			<header ng-include="'../view/inc_header.html'"></header>
+			<div id="baseContent">
+				<div id="home">
+					
+					<div class="refund">
+						<div class="refund_item">
+							<div>退本中!</div>
+							<div>上轮游戏已结束</div>
+							<div>游戏将于3天15小时后重新启动</div>
+						</div>
+					</div>
+					
+					<div class="item1">
+						<div class="item1-bg">
+							<div class="item1-box p-ct paddingl60">
+								<div class="item1-text1">公平 公正 公开</div>
+								<div class="item1-text2">Fair and open</div>
+								<div class="joinBtn refund_btn">立即参与 &rarr;</div>
+							</div>
+						</div>
+					</div>
+					<div class="item2">
+						<div class="item2-title itemH100 paddingl60" data-localize="home.msg1">参与奖池</div>
+						<div class="item2-content flex">
+							<div class="content-left">
+								<div class="item2-box item2-box-big bgColor-box1 borderRadius5">
+									<img src="../img/index/box1.png" alt="" srcset="">
+									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data2">静态分红奖池</div>
+								</div>
+								<div class="item2-box borderRadius5 bgColor-box2">
+									<img src="../img/index/box2.png" alt="" srcset="">
+									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data2">全球分红奖池</div>
+								</div>
+							</div>
+							<div class="content-right">
+								<div class="item2-box borderRadius5 bgColor-box3">
+									<img src="../img/index/box3.png" alt="" srcset="">
+									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data2">推荐奖池</div>
+								</div>
+								<div class="item2-box borderRadius5 bgColor-box4">
+									<img src="../img/index/box4.png" alt="" srcset="">
+									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data2">终极bonus奖池</div>
+								</div>
+								<div class="item2-box borderRadius5 bgColor-box5">
+									<img src="../img/index/box5.png" alt="" srcset="">
+									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data2">退本奖池</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item3">
+						<div class="item3-content item3-bg">
+							<div class="item3-content-title itemH100 textCenter">参与方法</div>
+							<div class="item3-content-text colorfff padding-20-30">
+								投入0.5个及以上的ETH，依据您的投资额度，可获得50%-100%的收益。
+							</div>
+						</div>
+
+						<div class="item3-content item3-bg">
+							<div class="item3-content-title itemH100 textCenter">出局规则</div>
+							<div class="item3-content-text colorfff padding-20-30">
+								投入0.5-11个ETH，收益达到1.5倍本金时出局
+								投入11-21个ETH，收益达到1.8倍本金时出局
+								投入21个及以上的ETH，收益达到2倍本金时出局
+							</div>
+							<div class="item3-content-text color-red4 paddingl30 paddingb30">注意：以上收益特指 静态分红+直推奖励</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/lib/arithmetic.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/script/refund.js" type="text/javascript" charset="utf-8"></script>
+</html>

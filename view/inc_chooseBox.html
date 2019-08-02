@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+<!-- 确认订单底部弹窗 -->
+<div id="select_window" ng-click="closeWindow($event)">
+
+	<!-- 项 -->
+	<div id="select_Content">
+		<!-- <div id="select_close" class="border_B_1">
+			<div class="width_100P display_flex justify_between">
+				<div class="fontSize_32">商品清单</div>
+				<div class="color_grey_2 display_flex">
+					<div ng-click="closeWindow($event)" class="closeIcon"></div>
+				</div>
+			</div>
+		</div> -->
+		<div class="select_itemScroll">
+			<div ng-repeat="x in itemlist" repeat-done="itemMax()" class="select_item" ng-click="choose(x.id,x.name)">{{x.name}}</div>
+		</div>
+	</div>
+</div>
+<script>
+	var appElement = document.querySelector('[ng-controller=myContr]');
+	var $compile = angular.element(appElement).injector().get("$compile");
+	var $scope = angular.element(appElement).scope();
+	
+	$scope.itemMax = function(){
+		var topHeight = $("#select_close").outerHeight();
+		var itemHeight = $(".select_itemScroll").outerHeight();
+		if(itemHeight>$("body").height()){
+			var bodyH = $("body").height();
+			$(".select_itemScroll").css({
+				"height":bodyH-topHeight*5,
+				"overflow-y":"scroll"
+			})
+			//$(".confirm_itemScroll").height(bodyH-topHeight);
+		}
+	}
+	
+	$scope.name=null;
+	$scope.isSpec = function(i,name,type){
+		if(type==0){
+			$scope.itemlist=$scope.types;
+		}else{
+			$scope.itemlist=$scope.pts;
+		}
+		$scope.type=type;
+		$scope.name=name;
+		var $id = $("#"+name);
+		if(i==1){
+			$id.removeClass("windowOut");
+			$("#select_window").removeClass("visibleOut");
+			$("#select_window").addClass("visibleUp");
+			setTimeout(function(){
+				$id.addClass("windowUp");
+			},200);
+		}else{
+			$id.addClass("windowOut");
+			$("#select_window").removeClass("visibleUp");
+			$("#select_window").addClass("visibleOut");
+			setTimeout(function(){
+				$id.removeClass("windowUp");
+			},300);
+		}
+	}
+	$scope.closeWindow = function(event){
+		event.stopPropagation();
+		var targetId=event.target.id;
+		var targetClass=event.target.className;
+		if(targetId=="select_window"||targetClass=="closeIcon"){
+			$scope.isSpec(0,$scope.name);
+		}
+	}
+</script>

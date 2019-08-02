@@ -1,0 +1,93 @@
+/*修改提示文字的颜色*/
+input::-webkit-input-placeholder {
+	color: #8083d2 !important; 
+	font-size: 0.3rem;
+	background: transparent;
+} /* WebKit browsers */ 
+input:-moz-placeholder {
+	color: #8083d2 !important; 
+	font-size: 0.3rem;
+	background: transparent;
+}  /* Mozilla Firefox 4 to 18 */ 
+input::-moz-placeholder {
+	color: #8083d2 !important; 
+	font-size: 0.3rem;
+	background: transparent;
+} /* Mozilla Firefox 19+ */ 
+input:-ms-input-placeholder {
+	color: #8083d2 !important; 
+	font-size: 0.3rem;
+	background: transparent;
+} /* Internet Explorer 10+ */
+
+.transferContain{
+	width: 100%;
+}
+.transferContain>div.item{
+	position: relative;
+	width: 90%;
+	margin: auto;
+	border-radius: 5px;
+}
+.transferContain .item1{
+	width: 35%;
+}
+.transferContain .item2{
+	width: 65%;
+}
+.transferContain .item2 input{
+	display: block;
+	width: 100%;
+	color: #fff;
+	font-size: 0.3rem;
+	background: transparent;
+	border: none;
+}
+.transferContain .item1_1{
+	width: 55%;
+	border-radius: 5px;
+}
+.transferContain .item2_1{
+	width: 35%;
+	border-radius: 5px;
+	background: #f79810;
+	padding: 0.3rem 0;
+	text-align: center;
+	border: none;
+	color: #fff;
+	font-size: 0.3rem;
+}
+.transferContain .item1_1 input{
+	display: block;
+	width: 100%;
+	color: #fff;
+	font-size: 0.3rem;
+	background: transparent;
+	border: none;
+	text-align: center;
+}
+.transferContain .btn{
+	width: 5rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	background: #f79810;
+	margin: 1rem auto 0;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	text-align: center;
+	font-size:0.3rem;
+	color: #fff;
+}
+.transferContain .title{
+	position: relative;
+	border-radius: 5px 5px 0 0 ;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+}
+.topBorderLine{
+	height: 3px;
+	background: #fff;
+	position: absolute;
+	bottom: 0;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>			
+		<title>DappCatalog</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+		<meta content="yes" name="apple-touch-fullscreen">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="cache-control" content="no-siteapp">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<!-- 公共文件 -->
+		<script src="../js/public/common.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	</head>
+	<body ng-app="myApp"  ng-controller="myContr">
+		<!-- 引入下拉窗口 -->
+		<div ng-include="'../view/inc_menu.html'"></div>
+		<div id="main">
+			<header ng-include="'../view/inc_header.html'"></header>
+			<div id="baseContent">
+				<div id="open">
+					<div class="open_main flex">
+						<div class="o1 paddingl40 paddingr40 color-white fonts30">收益发放ETV</div>
+						<div class="o2 flex justifyCenter">
+							<div ng-click="open()" class="roll_main">
+								<div class="roll_ball"></div>
+							</div>
+						</div>
+					</div>
+					<div class="item3">
+						<div class="item3-content item3-bg">
+							<div class="item3-content-title itemH100 textCenter">兑换说明</div>
+							<div class="item3-content-text colorfff padding-20-30">
+								开启该功能，您每天在游戏中获得收益ETH将自动置换成ETV并发放到您的钱包中，以发放实时汇率进行置换。
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/lib/arithmetic.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/script/open.js" type="text/javascript" charset="utf-8"></script>
+</html>

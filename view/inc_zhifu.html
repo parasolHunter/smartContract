@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+<!--支付浮动层-->
+<div class="ftc_wzsf">
+    <div class="srzfmm_box">
+         <div class="qsrzfmm_bt clear_wl">
+            <div style="line-height: 0.9rem;text-align: center;" data-localize="mall.enterPwd">支付密码</div>
+            <div class="zfClose" onclick="zfClose()"></div>
+		 </div>
+         <div class="zfmmxx_shop">
+             <div class="mz">{{title}}</div>
+             <div class="zhifu_price">{{wallet_type}}{{amt!=null?(!acctype ? (amt):(amt)):''}}</div></div>
+         <ul class="mm_box">
+             <li></li><li></li><li></li><li></li><li></li><li></li>
+         </ul>
+          <a href="payPwd.html" class="zfLink" data-localize="mall.forgetPwd">忘记密码</a>
+     </div>
+     <div class="numb_box">
+         <div class="xiaq_tb">
+         	<div class="xiaq_img"></div>
+         </div>
+         <ul class="nub_ggg">
+             <li><a href="javascript:void(0);" class="zf_num">1</a></li>
+             <li><a href="javascript:void(0);" class="zj_x zf_num">2</a></li>
+             <li><a href="javascript:void(0);" class="zf_num">3</a></li>
+             <li><a href="javascript:void(0);" class="zf_num">4</a></li>
+             <li><a href="javascript:void(0);" class="zj_x zf_num">5</a></li>
+             <li><a href="javascript:void(0);" class="zf_num">6</a></li>
+             <li><a href="javascript:void(0);" class="zf_num">7</a></li>
+             <li><a href="javascript:void(0);" class="zj_x zf_num">8</a></li>
+             <li><a href="javascript:void(0);" class="zf_num">9</a></li>
+             <li><a href="javascript:void(0);" class="zf_empty" data-localize="mall.clear">清空</a></li>
+             <li><a href="javascript:void(0);" class="zj_x zf_num">0</a></li>
+             <li><a href="javascript:void(0);" class="zf_del" data-localize="mall.delete">删除</a></li>
+         </ul>
+     </div>
+     <div class="hbbj"></div>
+</div>
+<script src="../js/jquery.localize.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/lib/sw_lang.js?v=20181022" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var coll = '';
+	var i = 0;
+	function zfShow(type){
+       	$(".ftc_wzsf").fadeIn();
+       	coll = type;
+       }
+	function zfClose(){
+           i = 0;
+           $(".mm_box li").removeClass("mmdd");
+           $(".mm_box li").attr("data","");
+		$(".ftc_wzsf").fadeOut();
+	}
+    $(function(){
+        //数字显示隐藏
+        $(".xiaq_tb").click(function(){
+        	$(".srzfmm_box").transition({top:"16%"});
+            $(".numb_box").slideUp(500);
+        });
+        $(".mm_box").click(function(){
+        	$(".srzfmm_box").transition({top:"10%"});
+            $(".numb_box").slideDown(500);
+        });
+
+        $(".nub_ggg li .zf_num").click(function(){
+        	//console.log(i)
+            if(i<6){
+                $(".mm_box li").eq(i).addClass("mmdd");
+                $(".mm_box li").eq(i).attr("data",$(this).text());
+                i++
+                if (i==6) {
+                  setTimeout(function(){
+                    var data = "";
+                        $(".mm_box li").each(function(){
+                        data += $(this).attr("data");
+                    });
+                    var appElement = document.querySelector('[ng-controller=myContr]');
+                   	var $scope = angular.element(appElement).scope(); 
+                   	
+                   	if(coll == 'collision'){
+                   		$scope.collision(data);
+                   	}else{
+                   		$scope.submitF(data);
+                   	}
+                    //alert("支付成功"+data);
+                  },100);
+                };
+            } 
+        });
+            
+        $(".nub_ggg li .zf_del").click(function(){
+            if(i>0){
+                i--
+                $(".mm_box li").eq(i).removeClass("mmdd");
+                $(".mm_box li").eq(i).attr("data","");
+            }
+        });
+
+        $(".nub_ggg li .zf_empty").click(function(){
+            $(".mm_box li").removeClass("mmdd");
+            $(".mm_box li").attr("data","");
+            i = 0;
+        });
+         
+    });
+</script>	

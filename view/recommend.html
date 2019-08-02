@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>			
+		<title>DappCatalog</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+		<meta content="yes" name="apple-touch-fullscreen">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="cache-control" content="no-siteapp">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<!-- 公共文件 -->
+		<script src="../js/public/common.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	</head>
+	<body ng-app="myApp"  ng-controller="myContr">
+		<!-- 引入下拉窗口 -->
+		<div ng-include="'../view/inc_menu.html'"></div>
+		<div id="main">
+			<header ng-include="'../view/inc_header.html'"></header>
+			<div id="baseContent">
+				<div id="recommend">
+					
+					<div class="recommend">
+						<div class="recommend_item">
+							<div class="recommend_title flex height115 fonts36 borderb">
+								<img src="../img/index/yq_icon.png"/>
+								<div class="marginl30">我的邀请码</div>
+							</div>
+							<div class="flex height160 justifyBetween">
+								<div class="fonts48 span70 sl-omitted" ng-if="invitationCode">{{invitationCode}}</div>
+								<div class="fonts48 borderb height60 span60" ng-if="!invitationCode"></div>
+								<div ng-if="invitationCode" ng-click="copy(invitationCode)" class="re_copyBtn">复制</div>
+								<div ng-if="!invitationCode" ng-click="build()" class="re_copyBtn">生成</div>
+							</div>
+						</div>
+					</div>
+					
+					<div ng-if="iscode==1" class="item2">
+						<div class="item2-content flex">
+							<div class="content-left">
+								<div class="item2-box item2-box-big item2-bg borderRadius5">
+									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data2">累计业绩</div>
+									<img src="../img/index/ljyj_icon.png" alt="" srcset="">
+								</div>
+							</div>
+							<div class="content-right">
+								<div class="item2-box borderRadius5 item2-bg">
+									<img src="../img/index/dqyj_icon.png" alt="" srcset="">
+									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data2">大区业绩</div>
+								</div>
+								<div class="item2-box borderRadius5 item2-bg">
+									<img src="../img/index/xqyj_icon.png" alt="" srcset="">
+									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data2">小区业绩</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item3">
+						<div class="item3-title itemH100 paddingl60">我的推荐</div>
+						<div ng-if="iscode==0" class="noneRecord flex justifyCenter flexColumn">
+							<img class="width_300 margint100" src="../img/index/none.png"/>
+							<div class="text color-white fonts26 margint10">暂无数据</div>
+						</div>
+						<div ng-if="iscode==1">
+							<div class="item3-content item3-bg">
+								<div class="item3-content-text colorfff padding-20-30">
+									<div class="flex">
+										<div class="flex">
+											<img class="marginr10" src="../img/index/star_checked.png"/>
+											<img class="marginr10" src="../img/index/star_checked.png"/>
+											<img class="marginr10" src="../img/index/star_checked.png"/>
+										</div>
+										<div class="fonts24 marginl20 color-c7cad3">6-20</div>
+									</div>
+									<div class="flex justifyBetween">
+										<div class="item_br width_78P sl-omitted">0nvvvmzbvjkhfkjhakfhaifhk1234546</div>
+										<div ng-click="copy('ddd')" class="re_copyBtn_1 paddingl30 paddingr30 fonts24 borderRadius5">复制</div>
+									</div>
+								</div>
+							</div>
+							<div class="item3-content item3-bg">
+								<div class="item3-content-text colorfff padding-20-30">
+									<div class="flex">
+										<div class="flex">
+											<img class="marginr10" src="../img/index/star_checked.png"/>
+											<img class="marginr10" src="../img/index/star_checked.png"/>
+											<img class="marginr10" src="../img/index/star_unchecked.png"/>
+										</div>
+										<div class="fonts24 marginl20 color-c7cad3">6-20</div>
+									</div>
+									<div class="flex justifyBetween">
+										<div class="item_br width_78P sl-omitted">0nvvvmzbvjkhfkjhakfhaifhk1234546</div>
+										<div ng-click="copy('ddd')" class="re_copyBtn_1 paddingl30 paddingr30 fonts24 borderRadius5">复制</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/lib/arithmetic.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/script/recommend.js" type="text/javascript" charset="utf-8"></script>
+</html>

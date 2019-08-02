@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>			
+		<title>DappCatalog</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+		<meta content="yes" name="apple-touch-fullscreen">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="cache-control" content="no-siteapp">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<!-- 公共文件 -->
+		<script src="../js/public/common.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+	</head>
+	<body ng-app="myApp"  ng-controller="myContr">
+		<!-- 引入下拉窗口 -->
+		<div ng-include="'../view/inc_menu.html'"></div>
+		<div id="main">
+			<header ng-include="'../view/inc_header.html'"></header>
+			<div id="baseContent">
+				<div id="record">
+					
+					<div class="record_sy">
+						<div class="record_item">
+							<div class="fonts60 fontBold">15.2222</div>
+							<div class="fonts24">合计总收益(ETH)</div>
+						</div>
+					</div>
+					
+					<div class="item3">
+						<div class="item3-title itemH100 paddingl60">收益明细(ETH)</div>
+						<div ng-if="iscode==0" class="noneRecord flex justifyCenter flexColumn">
+							<img class="width_300 margint100" src="../img/index/none.png"/>
+							<div class="text color-white fonts26 margint10">暂无数据</div>
+						</div>
+						<div ng-if="iscode==1">
+							<div class="item3-content item3-bg">
+								<div class="item3-content-text colorfff padding-20-50">
+									<div class="flex justifyBetween height65">
+										<div class="color-c7cad3 fonts36">
+											<span>+0.55</span>
+										</div>
+										<div class="fonts24 textRight">
+											<div>静态分红</div>
+											<div>6-20</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item3-content item3-bg">
+								<div class="item3-content-text colorfff padding-20-50">
+									<div class="flex justifyBetween height65">
+										<div class="color-c7cad3 fonts36">
+											<span>+0.55</span>
+										</div>
+										<div class="fonts24 textRight">
+											<div>推荐奖</div>
+											<div>6-20</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item3-content item3-bg">
+								<div class="item3-content-text colorfff padding-20-50">
+									<div class="flex justifyBetween height65">
+										<div class="color-c7cad3 fonts36">
+											<span>+0.55</span>
+											<span class="fonts24">(ETV)</span>
+										</div>
+										<div class="fonts24 textRight">
+											<div>全球分红</div>
+											<div>6-20</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item3-content item3-bg">
+								<div class="item3-content-text colorfff padding-20-50">
+									<div class="flex justifyBetween height65">
+										<div class="color-c7cad3 fonts36">
+											<span>+0.55</span>
+										</div>
+										<div class="fonts24 textRight">
+											<div>bonus奖</div>
+											<div>6-20</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item3-content item3-bg">
+								<div class="item3-content-text colorfff padding-20-50">
+									<div class="flex justifyBetween height65">
+										<div class="color-c7cad3 fonts36">
+											<span>+0.55</span>
+										</div>
+										<div class="fonts24 textRight">
+											<div>退本</div>
+											<div>6-20</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item3-content item3-bg">
+								<div class="item3-content-text colorfff padding-20-50">
+									<div class="flex justifyBetween height65">
+										<div class="color-c7cad3 fonts36">
+											<span>+0.55</span>
+										</div>
+										<div class="fonts24 textRight">
+											<div>V级退本静态补贴</div>
+											<div>6-20</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/lib/arithmetic.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/script/recommend.js" type="text/javascript" charset="utf-8"></script>
+</html>
