@@ -11,21 +11,21 @@
 		<meta http-equiv="cache-control" content="no-siteapp">
 		<meta name="robots" content="INDEX,FOLLOW">
 		<!-- 公共文件 -->
-		<script src="../js/public/common.js?v=20190805" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="../css/index.css?v=20190805"/>
+		<script src="js/public/common.js?v=20190805" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css?v=20190805"/>
 	</head>
 	<body ng-app="myApp"  ng-controller="myContr">
 		<!-- 引入下拉窗口 -->
-		<div ng-include="'../view/inc_menu.html?v=20190805'"></div>
+		<div ng-include="'inc_menu.html?v=20190805'"></div>
 		<div id="main">
-			<header ng-include="'../view/inc_header.html?v=20190805'"></header>
+			<header ng-include="'inc_header.html?v=20190805'"></header>
 			<div id="baseContent">
 				<div id="recommend">
 					
 					<div class="recommend">
 						<div class="recommend_item">
 							<div class="recommend_title flex height115 fonts36 borderb">
-								<img src="../img/index/yq_icon.png"/>
+								<img src="img/index/yq_icon.png"/>
 								<div class="marginl30" data-localize="invite.msg1">我的邀请链接</div>
 							</div>
 							<div class="flex height160 justifyBetween">
@@ -43,17 +43,17 @@
 								<div class="item2-box item2-box-big item2-bg borderRadius5">
 									<div class="item2-box-data1">15.2333</div>
 									<div class="item2-box-data2" data-localize="invite.msg3">累计业绩</div>
-									<img src="../img/index/ljyj_icon.png" alt="" srcset="">
+									<img src="img/index/ljyj_icon.png" alt="" srcset="">
 								</div>
 							</div>
 							<div class="content-right">
 								<div class="item2-box borderRadius5 item2-bg">
-									<img src="../img/index/dqyj_icon.png" alt="" srcset="">
+									<img src="img/index/dqyj_icon.png" alt="" srcset="">
 									<div class="item2-box-data1">15.2333</div>
 									<div class="item2-box-data2" data-localize="invite.msg4">大区业绩</div>
 								</div>
 								<div class="item2-box borderRadius5 item2-bg">
-									<img src="../img/index/xqyj_icon.png" alt="" srcset="">
+									<img src="img/index/xqyj_icon.png" alt="" srcset="">
 									<div class="item2-box-data1">15.2333</div>
 									<div class="item2-box-data2" data-localize="invite.msg5">小区业绩</div>
 								</div>
@@ -63,7 +63,7 @@
 					<div class="item3">
 						<div class="item3-title itemH100 paddingl60" data-localize="invite.msg6">我的推荐</div>
 						<div ng-if="iscode==0" class="noneRecord flex justifyCenter flexColumn">
-							<img class="width_300 margint100" src="../img/index/none.png"/>
+							<img class="width_300 margint100" src="img/index/none.png"/>
 							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>
 						<div ng-if="iscode==1">
@@ -71,9 +71,9 @@
 								<div class="item3-content-text colorfff padding-20-30">
 									<div class="flex">
 										<div class="flex">
-											<img class="marginr10" src="../img/index/star_checked.png"/>
-											<img class="marginr10" src="../img/index/star_checked.png"/>
-											<img class="marginr10" src="../img/index/star_checked.png"/>
+											<img class="marginr10" src="img/index/star_checked.png"/>
+											<img class="marginr10" src="img/index/star_checked.png"/>
+											<img class="marginr10" src="img/index/star_checked.png"/>
 										</div>
 										<div class="fonts24 marginl20 color-c7cad3">6-20</div>
 									</div>
@@ -87,9 +87,9 @@
 								<div class="item3-content-text colorfff padding-20-30">
 									<div class="flex">
 										<div class="flex">
-											<img class="marginr10" src="../img/index/star_checked.png"/>
-											<img class="marginr10" src="../img/index/star_checked.png"/>
-											<img class="marginr10" src="../img/index/star_unchecked.png"/>
+											<img class="marginr10" src="img/index/star_checked.png"/>
+											<img class="marginr10" src="img/index/star_checked.png"/>
+											<img class="marginr10" src="img/index/star_unchecked.png"/>
 										</div>
 										<div class="fonts24 marginl20 color-c7cad3">6-20</div>
 									</div>
@@ -105,5 +105,5 @@
 			</div>
 		</div>
 	</body>
-	<script src="../js/script/recommend.js?v=20190805" type="text/javascript" charset="utf-8"></script>
+	<script src="js/script/recommend.js?v=20190805" type="text/javascript" charset="utf-8"></script>
 </html>

@@ -11,14 +11,14 @@
 		<meta http-equiv="cache-control" content="no-siteapp">
 		<meta name="robots" content="INDEX,FOLLOW">
 		<!-- 公共文件 -->
-		<script src="../js/public/common.js?v=20190805" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="../css/index.css?v=20190805"/>
+		<script src="js/public/common.js?v=20190805" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css?v=20190805"/>
 	</head>
 	<body ng-app="myApp"  ng-controller="myContr">
 		<!-- 引入下拉窗口 -->
-		<div ng-include="'../view/inc_menu.html?v=20190805'"></div>
+		<div ng-include="'inc_menu.html?v=20190805'"></div>
 		<div id="main">
-			<header ng-include="'../view/inc_header.html?v=20190805'"></header>
+			<header ng-include="'inc_header.html?v=20190805'"></header>
 			<div id="baseContent">
 				<div id="record">
 					
@@ -33,7 +33,7 @@
 					<div class="item3">
 						<div class="item3-title itemH100 paddingl60" data-localize="join.msg2">投资记录</div>
 						<div ng-if="iscode==0" class="noneRecord flex justifyCenter flexColumn">
-							<img class="width_300 margint100" src="../img/index/none.png"/>
+							<img class="width_300 margint100" src="img/index/none.png"/>
 							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>
 						<div ng-if="iscode==1">
@@ -76,5 +76,5 @@
 			</div>
 		</div>
 	</body>
-	<script src="../js/script/recommend.js?v=20190805" type="text/javascript" charset="utf-8"></script>
+	<script src="js/script/recommend.js?v=20190805" type="text/javascript" charset="utf-8"></script>
 </html>
