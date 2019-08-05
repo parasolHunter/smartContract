@@ -751,16 +751,39 @@
 
 .record_sy{
 	width: 7rem;
-	padding: 0.3rem 0 0.6rem;
+	padding: 0.3rem 0;
 	margin: auto;
 	font-family: SourceHanSansCN-Medium;
 }
 .record_sy .record_item{
-	height: 2.1rem;
-	padding: 0.6rem 0.5rem;
+  position: relative;
+	height: 2.8rem;
+	padding-top: 0.6rem;
 	border-radius: 12px;
 	background: url(../img/index/sy_bg.png) center center no-repeat;
 	background-size: cover;
 	font-size: 0.34rem;
 	color: #fff;
+}
+.record_sy .record_item .item1{
+  padding: 0 0.5rem;
+}
+.record_sy .record_item .item2{
+  padding: 0 0.5rem;
+}
+.record_sy .record_item .item3{
+  position: absolute;
+  bottom: 0;
+  width: 86%;
+  padding: 0 7%;
+  overflow: hidden;
+  height: 0.76rem;
+  line-height: 0.76rem;
+  border-radius: 0  0 12px 12px;
+  background: rgba(0, 0, 0, 0.3);
+}
+.record_sy .btn_1{
+  padding: 0.1rem 0.4rem;
+  background: rgba(113,122,218,0.4);
+  border: 1px solid #fff;
 }

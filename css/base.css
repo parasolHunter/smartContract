@@ -65,6 +65,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+em,i{
+  font-style: normal;
+}
 select::-ms-expand {
   display: none;
 } /*清除ie的默认选择框样式清除，隐藏下拉箭头*/

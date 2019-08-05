@@ -16,16 +16,25 @@
 	</head>
 	<body ng-app="myApp"  ng-controller="myContr">
 		<!-- 引入下拉窗口 -->
-		<div ng-include="'view/inc_menu.html?v=20190805'"></div>
+		<div ng-include="'inc_menu.html?v=20190805'"></div>
 		<div id="main">
-			<header ng-include="'view/inc_header.html?v=20190805'"></header>
+			<header ng-include="'inc_header.html?v=20190805'"></header>
 			<div id="baseContent">
 				<div id="record">
 					
 					<div class="record_sy">
 						<div class="record_item">
-							<div class="fonts60 fontBold">15.2222</div>
-							<div class="fonts24" data-localize="income.msg1">合计总收益(ETH)</div>
+							<div class="item1 flex justifyBetween">
+								<div>
+									<div class="fonts60 fontBold">0</div>
+									<div class="fonts24"><span data-localize="income.msg3">可提收益</span><em class="paddingr20" >(ETH)</em></div>
+								</div>
+								<div class="btn_1 fonts24 borderRadius5" data-localize="income.msg4" ng-click="coin()">提取</div>
+							</div>
+							<div class="item3 fonts24">
+								<span data-localize="income.msg1">合计总收益</span><em class="paddingr20" >(ETH)</em>
+								<span class="">0</span>
+							</div>
 						</div>
 					</div>
 					
@@ -121,5 +130,5 @@
 			</div>
 		</div>
 	</body>
-	<script src="js/script/recommend.js?v=20190805" type="text/javascript" charset="utf-8"></script>
+	<script src="js/script/incomes.js?v=20190805" type="text/javascript" charset="utf-8"></script>
 </html>

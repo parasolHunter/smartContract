@@ -53,7 +53,9 @@
 	},
 	"income":{
 	    "msg1":"Total revenue",
-	    "msg2":"Income breakdown"
+		"msg2":"Income breakdown",
+		"msg3":"Revenue",
+		"msg4":"extract"
 	},
 	"join":{
 	    "msg1":"Currently casting",
