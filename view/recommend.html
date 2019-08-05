@@ -26,12 +26,12 @@
 						<div class="recommend_item">
 							<div class="recommend_title flex height115 fonts36 borderb">
 								<img src="../img/index/yq_icon.png"/>
-								<div class="marginl30">我的邀请链接</div>
+								<div class="marginl30" data-localize="invite.msg1">我的邀请链接</div>
 							</div>
 							<div class="flex height160 justifyBetween">
 								<div class="fonts48 span70 sl-omitted" ng-if="invitationUrl">{{invitationUrl}}</div>
 								<div class="fonts48 borderb height60 span60" ng-if="!invitationUrl"></div>
-								<div ng-if="invitationUrl" ng-click="copy(invitationUrl)" class="re_copyBtn">复制</div>
+								<div ng-if="invitationUrl" ng-click="copy(invitationUrl)" class="re_copyBtn" data-localize="invite.msg2">复制</div>
 								<div ng-if="!invitationUrl" ng-click="build()" class="re_copyBtn">生成</div>
 							</div>
 						</div>
@@ -42,7 +42,7 @@
 							<div class="content-left">
 								<div class="item2-box item2-box-big item2-bg borderRadius5">
 									<div class="item2-box-data1">15.2333</div>
-									<div class="item2-box-data2">累计业绩</div>
+									<div class="item2-box-data2" data-localize="invite.msg3">累计业绩</div>
 									<img src="../img/index/ljyj_icon.png" alt="" srcset="">
 								</div>
 							</div>
@@ -50,21 +50,21 @@
 								<div class="item2-box borderRadius5 item2-bg">
 									<img src="../img/index/dqyj_icon.png" alt="" srcset="">
 									<div class="item2-box-data1">15.2333</div>
-									<div class="item2-box-data2">大区业绩</div>
+									<div class="item2-box-data2" data-localize="invite.msg4">大区业绩</div>
 								</div>
 								<div class="item2-box borderRadius5 item2-bg">
 									<img src="../img/index/xqyj_icon.png" alt="" srcset="">
 									<div class="item2-box-data1">15.2333</div>
-									<div class="item2-box-data2">小区业绩</div>
+									<div class="item2-box-data2" data-localize="invite.msg5">小区业绩</div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="item3">
-						<div class="item3-title itemH100 paddingl60">我的推荐</div>
+						<div class="item3-title itemH100 paddingl60" data-localize="invite.msg6">我的推荐</div>
 						<div ng-if="iscode==0" class="noneRecord flex justifyCenter flexColumn">
 							<img class="width_300 margint100" src="../img/index/none.png"/>
-							<div class="text color-white fonts26 margint10">暂无数据</div>
+							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>
 						<div ng-if="iscode==1">
 							<div class="item3-content item3-bg">
