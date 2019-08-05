@@ -28,36 +28,36 @@
 		"msg6":"사용"
 	},
 	"home": {
-		"msg1":"Participate in the prize pool",
-		"msg2":"Participate",	    
-		"msg3":"Static bonus pool",
-		"msg4":"Global bonus pool",
-		"msg5":"Recommended pool",
-		"msg6":"Ultimate Bonus Pool",
-		"msg7":"Rebate prize pool",
-		"msg8":"Participation method",
-		"msg9":"Invest 0.001 or more of ETH, depending on your investment quota, you can get 50%-100% of the income.",
-		"msg10":"Outgoing rule",
-		"msg11":"Investing 0.5-11 ETHs and getting out of 1.5 times the principal",
-		"msg12":"Investing 11-21 ETHs, the proceeds are out of 1.8 times the principal",
-		"msg13":"Investing 21 or more ETHs, the proceeds are 2 times the principal",
-		"msg14":"Note: The above income refers to static dividends + direct rewards."
+		"msg1":"상금 수영장에 참여하십시오.",
+		"msg2":"참여",	    
+		"msg3":"정적 보너스 풀",
+		"msg4":"글로벌 보너스 풀",
+		"msg5":"다이나믹 상금 풀",
+		"msg6":"복권 풀",
+		"msg7":"보험 풀",
+		"msg8":"참가 방법",
+		"msg9":"투자 쿼터에 따라 ETH 0.001 이상을 투자하면 소득의 50 % -100 %를 얻을 수 있습니다.",
+		"msg10":"나가는 규칙",
+		"msg11":"0.5-11ETH 투자 및 원금의 1.5 배 초과",
+		"msg12":"투자 11-21 ETHs, 수익은 교장의 1.8 배 밖입니다",
+		"msg13":"21 개 이상의 ETH를 투자하면 수익금은 원금의 2 배입니다.",
+		"msg14":"참고 : 상기 소득은 정적 배당 + 직접 보상을 의미합니다."
 	},
 	"invite":{
-		"msg1":"My invitation link",
-		"msg2":"Copy",
-		"msg3":"Cumulative performance",
-	    "msg4":"Regional",
-	    "msg5":"Community",
-	    "msg6":"My recommendation"
+		"msg1":"내 초대 링크",
+		"msg2":"복사",
+		"msg3":"누적 실적",
+	    "msg4":"지역",
+	    "msg5":"지역 사회 성과",
+	    "msg6":"내 추천"
 	},
 	"income":{
-	    "msg1":"Total revenue",
-	    "msg2":"Income breakdown"
+	    "msg1":"총 수익",
+	    "msg2":"소득 붕괴"
 	},
 	"join":{
-	    "msg1":"Currently casting",
-	    "msg2":"Investment record"
+	    "msg1":"현재 주조 중",
+	    "msg2":"투자 기록"
 	}
 }
 	

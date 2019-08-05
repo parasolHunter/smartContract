@@ -23,6 +23,9 @@ $(function(){
 	}else if(getCookie("language") == "ko"){
 		$(".select-curr").attr("src","../img/icon/ko.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "ko"});
+	}else{
+		$(".select-curr").attr("src","../img/icon/en.png");
+		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "en"});
 	}
 });
 

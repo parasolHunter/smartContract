@@ -28,36 +28,36 @@
 		"msg6":"引き換える"
 	},
 	"home": {
-		"msg1":"Participate in the prize pool",
-		"msg2":"Participate",	    
-		"msg3":"Static bonus pool",
-		"msg4":"Global bonus pool",
-		"msg5":"Recommended pool",
-		"msg6":"Ultimate Bonus Pool",
-		"msg7":"Rebate prize pool",
-		"msg8":"Participation method",
-		"msg9":"Invest 0.001 or more of ETH, depending on your investment quota, you can get 50%-100% of the income.",
-		"msg10":"Outgoing rule",
-		"msg11":"Investing 0.5-11 ETHs and getting out of 1.5 times the principal",
-		"msg12":"Investing 11-21 ETHs, the proceeds are out of 1.8 times the principal",
-		"msg13":"Investing 21 or more ETHs, the proceeds are 2 times the principal",
-		"msg14":"Note: The above income refers to static dividends + direct rewards."
+		"msg1":"賞金プールに参加する",
+		"msg2":"参加する",	    
+		"msg3":"静的ボーナスプール",
+		"msg4":"グローバルボ",
+		"msg5":"動的賞金プール",
+		"msg6":"宝くじプール",
+		"msg7":"保険プール",
+		"msg8":"参加方法",
+		"msg9":"あなたの投資割当量に応じて、ETHの0.001以上を投資し、あなたは収入の50％-100％を得ることができます.",
+		"msg10":"発信ルール",
+		"msg11":"0.5-11ETH 투자 및 원금의 1.5 배 초과",
+		"msg12":"11〜21のETHを投資した場合、収益は元本の1.8倍になります。",
+		"msg13":"21以上のETHを投資すると、収益は元本の2倍になります。",
+		"msg14":"注：上記の収入は静的配当+直接報酬を指しています。"
 	},
 	"invite":{
-		"msg1":"My invitation link",
-		"msg2":"Copy",
-		"msg3":"Cumulative performance",
-	    "msg4":"Regional",
-	    "msg5":"Community",
-	    "msg6":"My recommendation"
+		"msg1":"私の招待状リンク",
+		"msg2":"コピーする",
+		"msg3":"累積実績",
+	    "msg4":"地域",
+	    "msg5":"コミュニティ",
+	    "msg6":"私のおすすめ"
 	},
 	"income":{
-	    "msg1":"Total revenue",
-	    "msg2":"Income breakdown"
+	    "msg1":"総収入",
+	    "msg2":"収入の内訳"
 	},
 	"join":{
-	    "msg1":"Currently casting",
-	    "msg2":"Investment record"
+	    "msg1":"現在キャスト中",
+	    "msg2":"投資記録"
 	}
 }
 	
