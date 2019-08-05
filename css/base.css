@@ -1,5 +1,5 @@
 /*初始化样式*/
-@font-face {
+/* @font-face {
   font-family: "PF";
   src: url("../font/PingFang Bold.ttf");
   src: url("../font/PingFang ExtraLight.ttf");
@@ -9,7 +9,7 @@
   src: url("../font/PingFang Regular.ttf");
   font-weight: normal;
   font-style: normal;
-}
+} */
 body,
 h1,
 h2,

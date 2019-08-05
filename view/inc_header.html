@@ -8,7 +8,7 @@
         alt="以太联盟"
         onclick="location.href='home.html'"
       />
-      <span>Ether Union</span>
+      <span>Ethereum Alliance</span>
     </div>
     <div ng-click="drop($event)" class="menu flex justifyStart">
       <img src="../img/icon/menu@2x.png" />
@@ -49,17 +49,19 @@
     if (!err) {
       for (i=0; i< res.length; i++){
         var account = res[i];
+        
+        setSession("account",account);
 
         if ($scope.ajaxStatus == true) {
           console.log("正在请求中。。。。。");
           return;
         }
         $scope.ajaxStatus = true;
-        loadingDialog.show();
 
         web3.eth.getBalance(account, (err2, res2) => {
           if (!err2) {
             // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
+            console.log(res2);
             output += "balance = "+res2+" (wei),";
             var wei = res2.toString();
             etherStr +=  web3.utils.fromWei(wei, 'ether')+",";
@@ -73,7 +75,6 @@
           $(".eth").text(etherArray[0]);
 
           $scope.ajaxStatus = false;
-          loadingDialog.hide();
         })
       }
     } else {
@@ -86,6 +87,5 @@
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
     $scope.showGetBalance();
-    // getTransactionReceipt('0x43a2ed873a32bac926e1c5a42d1eb732851c48c07ae858be3f7bf92328b4edf5');
   }
 </script>

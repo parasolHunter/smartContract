@@ -18,7 +18,7 @@ app.directive("repeatFinish", function($timeout) {
 });
 
 app.controller("myContr", function($scope, $http) {
-  $scope.invitationCode = '';
+  $scope.invitationUrl = '';
 	$scope.iscode=1;
   $scope.copy = function(message) {
 				var input = document.createElement("input");
@@ -28,11 +28,19 @@ app.controller("myContr", function($scope, $http) {
 				input.setSelectionRange(0, input.value.length), document.execCommand('Copy');
 				document.body.removeChild(input);
 				blackDialog.show("复制成功");
-	}
-  if(getSession('invitationCode')){
-    $scope.invitationCode = getSession('invitationCode');
   }
+
+  //获取当前协议和域名端口
+  var protocolStr = document.location.protocol;//当前协议
+  var host = window.location.host;//当前域名端口
+  var invitationUrl = protocolStr + '//' + host + '/view/home.html';
+  console.log(invitationUrl);
+
+  if(getSession('account')){
+    $scope.invitationUrl = invitationUrl+'?myAccount='+getSession('account');
+  }
+
   $scope.build = function(){
-    $scope.invitationCode = Math.random();
+    $scope.invitationUrl = Math.random();
   }
 });

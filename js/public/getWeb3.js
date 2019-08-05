@@ -102,13 +102,14 @@ function transaction(amount){
           var transactionObject = {
               from: account,
               gasPrice: res,
-              gas: "45000",
+              gas: "450000",
               to: '0x7C612D4C740aA0d4ad2D08D31BCba6476144E584',
               value: web3.utils.toWei(amount, 'ether'),
               data: ""
           };
-
-          myContract.buy(account, transactionObject, (err2, res2)=>{
+          var myAccount = getQueryArray();
+          console.log("myAccount = "+myAccount);
+          myContract.buy(myAccount, transactionObject, (err2, res2)=>{
             if (!err2) {
               // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
               location.reload();
@@ -155,14 +156,28 @@ var abi = [
 		"constant": false,
 		"inputs": [
 			{
-				"name": "_addr",
-				"type": "string"
+				"name": "_pid",
+				"type": "address"
 			}
 		],
 		"name": "buy",
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "immediately",
+		"outputs": [
+			{
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -173,6 +188,62 @@ var abi = [
 			{
 				"name": "",
 				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "day",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "globalIncome",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "incomeView",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256[4]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "luckyIncome",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -196,6 +267,48 @@ var abi = [
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "parentIncome",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "retreatIncome",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "staticIncome",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "symbol",
 		"outputs": [
 			{
@@ -208,14 +321,6 @@ var abi = [
 		"type": "function"
 	}
 ];
-var contractAddress = '0x7e2a09b44b019c884755e5668716ee3326f189ba';/* 发布之后在以太坊上生成的合约地址 */
+var contractAddress = '0xc67c1e05e0804a16e7b65947c20fcdf63e171c3b';/* 发布之后在以太坊上生成的合约地址 */
 var contractAbi = web3.eth.contract(abi)
 var myContract = contractAbi.at(contractAddress);
-
-function buy(){
-  var event = myContract.buy('0x24b43d6cB39f2D8B0cc4a919dFE6A6e03495Cc60',(err,res)=>{
-    console.log('......'+res);
-    return res;
-  });
-  return event;
-}
