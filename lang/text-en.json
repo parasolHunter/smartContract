@@ -41,7 +41,10 @@
 		"msg11":"Investing 0.5-11 ETHs and getting out of 1.5 times the principal",
 		"msg12":"Investing 11-21 ETHs, the proceeds are out of 1.8 times the principal",
 		"msg13":"Investing 21 or more ETHs, the proceeds are 2 times the principal",
-		"msg14":"Note: The above income refers to static dividends + direct rewards."
+		"msg14":"Note: The above income refers to static dividends + direct rewards.",
+		"msg15":"Retired!",
+		"msg16":"The last round of the game is over",
+		"msg17":"The game will restart after 3 days and 15 hours."
 	},
 	"invite":{
 		"msg1":"My invitation link",

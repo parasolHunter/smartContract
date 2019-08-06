@@ -18,6 +18,7 @@ app.directive("repeatFinish", function($timeout) {
 });
 
 app.controller("myContr", function($scope, $http) {
+  $scope.gameStatus = true;
   $scope.ajaxStatus = false;
   $scope.etherStr = "";
   var output = "";
