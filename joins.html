@@ -32,44 +32,20 @@
 					
 					<div class="item3">
 						<div class="item3-title itemH100 paddingl60" data-localize="join.msg2">投资记录</div>
-						<div ng-if="iscode==0" class="noneRecord flex justifyCenter flexColumn">
+						<div class="item3-content item3-bg" ng-repeat="k in dataList">
+							<div class="item3-content-text colorfff padding-20-50">
+								<div class="flex justifyBetween height65">
+									<div class="color-c7cad3 fonts36">+{{k.amount}}</div>
+									<div class="fonts24 textRight">
+										<div ng-class="{0:'color-red',1:'color-green',2:'color-c7cad3'}[k.status]">{{k.status == 0 ? '进行中':(k.status == 1 ? '已出局':'已结束')}}</div>
+										<div>{{k.time}}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div ng-if="dataList.length <= 0" class="noneRecord flex justifyCenter flexColumn">
 							<img class="width_300 margint100" src="img/index/none.png"/>
 							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
-						</div>
-						<div ng-if="iscode==1">
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">+0.55</div>
-										<div class="fonts24 textRight">
-											<div class="color-red">进行中</div>
-											<div>6-20</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">+0.55</div>
-										<div class="fonts24 textRight">
-											<div class="color-green">已出局</div>
-											<div>6-20</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">+0.55</div>
-										<div class="fonts24 textRight">
-											<div>已结束</div>
-											<div>6-20</div>
-										</div>
-									</div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>

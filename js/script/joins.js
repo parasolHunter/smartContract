@@ -21,7 +21,6 @@ app.controller("myContr", function($scope, $http) {
   $scope.gameStatus = true;
   $scope.ajaxStatus = false;
   $scope.etherStr = "";
-  $scope.iscode = 1;
   // var output = "";
   // if (typeof web3 !== 'undefined') {
   //   myContract.incomeView((err, res)=>{
@@ -35,19 +34,13 @@ app.controller("myContr", function($scope, $http) {
   //     }
   //   });
   // }
-  
+  $scope.dataList = [{amount: 0.55, time: '2019-08-06', status: 0},{amount: 0.55, time: '2019-05-11', status: 1},{amount: 0.55, time: '2019-01-12', status: 2}];
 	$scope.join=function(){
     if(isWeb() == 1){
       return
     }
 
 		$("#blackInput input").val("");
-		/* blackInput.show("邀请码","请输入邀请码","5","下一步","取消",function(){
-			var uname = $("#blackInput input").val();
-			alert(uname)
-			$("#blackInput").hide();
-		},function(){}); */
-		
 		
 		blackInput.show("参与","请输入数量","• 最小投资为0.001个ETH","确认","取消",function(){
       var uname = $("#blackInput input").val();
