@@ -97,11 +97,13 @@ function transaction(amount){
         $scope.ajaxStatus = true;
         web3.eth.getGasPrice((err, res)=>{
           $scope.ajaxStatus = false;
-          console.log(res);
+					console.log(res);
+					console.log(res);
+					console.log(res);
 
           var transactionObject = {
               from: account,
-              gasPrice: res,
+              gasPrice: res*10,
               gas: "550000000",
               value: web3.utils.toWei(amount, 'ether'),
               data: ""
