@@ -19,14 +19,11 @@ app.directive("repeatFinish", function($timeout) {
 
 app.controller("myContr", function($scope, $http) {
   $scope.invitationUrl = '';
-	$scope.iscode=1;
+  $scope.iscode=1;
+  shouyi_r();
   $scope.coin = function() {
     blackConfirm.show("是否确认提取？",function(){
-      // if ($scope.ajaxStatus == true) {
-      //   console.log("正在请求中。。。。。");
-      //   return;
-      // }
-      // $scope.ajaxStatus = true;
+      withdraw("111")
 		},function(){});
   }
 });

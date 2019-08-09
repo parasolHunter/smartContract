@@ -31,10 +31,12 @@ app.controller("myContr", function($scope, $http) {
         var globalIncomeWei = res[1].toString();
         var luckyIncomeWei = res[2].toString();
         var retreatIncomeWei = res[3].toString();
+        var parentIncomeWei = res[4].toString();
         $(".staticIncome").text(web3.utils.fromWei(staticIncomeWei, 'ether'))
         $(".globalIncome").text(web3.utils.fromWei(globalIncomeWei, 'ether'))
         $(".luckyIncome").text(web3.utils.fromWei(luckyIncomeWei, 'ether'))
         $(".retreatIncome").text(web3.utils.fromWei(retreatIncomeWei, 'ether'))
+        $(".parentIncome").text(web3.utils.fromWei(parentIncomeWei, 'ether'))
       } else {
         output = "Error2";
         console.log(output);
