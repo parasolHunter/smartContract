@@ -20,8 +20,13 @@ app.directive("repeatFinish", function($timeout) {
 app.controller("myContr", function($scope, $http) {
   $scope.invitationUrl = '';
   $scope.iscode=1;
-  shouyi_r();
+  if (typeof web3 !== 'undefined') {
+    setTimeout(function(){shouyi_r()},400);
+  }
   $scope.coin = function() {
+    if(isWeb() == 1){
+      return
+    }
     blackConfirm.show("是否确认提取？",function(){
       withdraw("111")
 		},function(){});

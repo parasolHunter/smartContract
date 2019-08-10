@@ -80,6 +80,7 @@ function parseResultObject(res){
   return output;
 }
 
+//canyu
 function transaction(amount){
   var appElement = document.querySelector('[ng-controller=myContr]');
   var $scope = angular.element(appElement).scope(); 
@@ -103,8 +104,8 @@ function transaction(amount){
 
           var transactionObject = {
               from: account,
-              gasPrice: res*10,
-              gas: "550000000",
+              gasPrice: res,
+              gas: "2100000",
               value: web3.utils.toWei(amount, 'ether'),
               data: ""
           };
@@ -130,6 +131,46 @@ function transaction(amount){
   })
 }
 
+
+//home
+function home(){
+	myContract.staticIncome((err, res)=>{
+		if (!err) {
+			var staticIncomeWei = res.toString();
+			$(".staticIncome").text(web3.utils.fromWei(staticIncomeWei, 'ether'))
+		} else {
+			output = "Error2";
+			console.log(output);
+		}
+	});
+	myContract.globalIncome((err, res)=>{
+		if (!err) {
+			var globalIncomeWei = res.toString();
+			$(".globalIncome").text(web3.utils.fromWei(globalIncomeWei, 'ether'))
+		} else {
+			output = "Error2";
+			console.log(output);
+		}
+	});
+	myContract.luckyIncome((err, res)=>{
+		if (!err) {
+			var luckyIncomeWei = res.toString();
+			$(".luckyIncome").text(web3.utils.fromWei(luckyIncomeWei, 'ether'))
+		} else {
+			output = "Error2";
+			console.log(output);
+		}
+	});
+	myContract.retreatIncome((err, res)=>{
+		if (!err) {
+			var retreatIncomeWei = res.toString();
+			$(".retreatIncome").text(web3.utils.fromWei(retreatIncomeWei, 'ether'))
+		} else {
+			output = "Error2";
+			console.log(output);
+		}
+	});
+}
 //tibi
 function withdraw(amount){
   var appElement = document.querySelector('[ng-controller=myContr]');
@@ -194,10 +235,13 @@ function shouyi_r(){
         }
         $scope.ajaxStatus = true;
   
-				myContract.playAddrs(account,(err2, res2)=>{
+				myContract.usrInfo(account,(err2, res2)=>{
 					if (!err2) {
-						var shouyi = res2.toString();
-						$(".shouyi").text(web3.utils.fromWei(shouyi, 'ether'));
+						console.log(res2)
+						var shouyi_balance = res2[3].toString();
+						var shouyi_sum = res2[4].toString();
+						$(".shouyi_balance").text(Number(web3.utils.fromWei(shouyi_balance, 'ether')).toFixed(6));
+						$(".shouyi_sum").text(Number(web3.utils.fromWei(shouyi_sum, 'ether')).toFixed(6));
 					} else {
 						output = "Error2";
 						console.log(output);
@@ -236,527 +280,716 @@ function isWeb(){
 }
 var abi = [
 	{
-	"constant": false,
-	"inputs": [
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "addWhitelisted",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
 	{
-	"name": "refAddr",
-	"type": "address"
+	 "constant": true,
+	 "inputs": [],
+	 "name": "minWithDraw",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "activated",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "bool"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "mminBuy",
+		 "type": "uint256"
+		},
+		{
+		 "name": "mmaxBuy",
+		 "type": "uint256"
+		},
+		{
+		 "name": "mminWithDraw",
+		 "type": "uint256"
+		}
+	 ],
+	 "name": "uptRunArgs",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "removeWhitelisted",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "luckyIncome",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "MAX_LUCK",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [
+		{
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "isWhitelisted",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "bool"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [],
+	 "name": "withdraw",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [],
+	 "name": "renounceWhitelistAdmin",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "amount",
+		 "type": "uint256"
+		},
+		{
+		 "name": "target",
+		 "type": "address"
+		}
+	 ],
+	 "name": "adminWithdraw",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "staticRand",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "ZERO_ADDR",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "address"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "initFlag",
+		 "type": "bool"
+		}
+	 ],
+	 "name": "startGame",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "maxBuy",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "minBuy",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [],
+	 "name": "renounceOwnership",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "addWhitelistAdmin",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "day",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [],
+	 "name": "stopGame",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "plays",
+		 "type": "address[]"
+		},
+		{
+		 "name": "selfEths",
+		 "type": "uint256[]"
+		}
+	 ],
+	 "name": "uptPlayerEth",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "name": "luckGays",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "address"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "owner",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "address"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "retreatIncome",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "isOwner",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "bool"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "globalIncome",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "staticIncome",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "name": "playAddrs",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "address"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "NAME",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "string"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [
+		{
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "isWhitelistAdmin",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "bool"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [],
+	 "name": "renounceWhitelisted",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "MAX_STATIC_RAND",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [
+		{
+		 "name": "target",
+		 "type": "address"
+		}
+	 ],
+	 "name": "usrInfo",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "address"
+		},
+		{
+		 "name": "",
+		 "type": "address"
+		},
+		{
+		 "name": "",
+		 "type": "address"
+		},
+		{
+		 "name": "",
+		 "type": "uint256"//可提余额
+		},
+		{
+		 "name": "",
+		 "type": "uint256"//总收益
+		},
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "refAddr",
+		 "type": "address"
+		}
+	 ],
+	 "name": "buy",
+	 "outputs": [],
+	 "payable": true,
+	 "stateMutability": "payable",
+	 "type": "function"
+	},
+	{
+	 "constant": false,
+	 "inputs": [
+		{
+		 "name": "newOwner",
+		 "type": "address"
+		}
+	 ],
+	 "name": "transferOwnership",
+	 "outputs": [],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "SYMBOL",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "string"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "inputs": [
+		{
+		 "name": "mmin",
+		 "type": "uint256"
+		},
+		{
+		 "name": "mmax",
+		 "type": "uint256"
+		},
+		{
+		 "name": "mminWithDraw",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "nonpayable",
+	 "type": "constructor"
+	},
+	{
+	 "payable": true,
+	 "stateMutability": "payable",
+	 "type": "fallback"
+	},
+	{
+	 "anonymous": false,
+	 "inputs": [
+		{
+		 "indexed": true,
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "WhitelistedAdded",
+	 "type": "event"
+	},
+	{
+	 "anonymous": false,
+	 "inputs": [
+		{
+		 "indexed": true,
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "WhitelistedRemoved",
+	 "type": "event"
+	},
+	{
+	 "anonymous": false,
+	 "inputs": [
+		{
+		 "indexed": true,
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "WhitelistAdminAdded",
+	 "type": "event"
+	},
+	{
+	 "anonymous": false,
+	 "inputs": [
+		{
+		 "indexed": true,
+		 "name": "account",
+		 "type": "address"
+		}
+	 ],
+	 "name": "WhitelistAdminRemoved",
+	 "type": "event"
+	},
+	{
+	 "anonymous": false,
+	 "inputs": [
+		{
+		 "indexed": true,
+		 "name": "previousOwner",
+		 "type": "address"
+		},
+		{
+		 "indexed": true,
+		 "name": "newOwner",
+		 "type": "address"
+		}
+	 ],
+	 "name": "OwnershipTransferred",
+	 "type": "event"
+	},
+	{
+	 "anonymous": false,
+	 "inputs": [
+		{
+		 "indexed": true,
+		 "name": "playerAddress",
+		 "type": "address"
+		},
+		{
+		 "indexed": true,
+		 "name": "refAddress",
+		 "type": "address"
+		},
+		{
+		 "indexed": false,
+		 "name": "isNewPlayer",
+		 "type": "bool"
+		},
+		{
+		 "indexed": false,
+		 "name": "money",
+		 "type": "uint256"
+		},
+		{
+		 "indexed": false,
+		 "name": "timeStamp",
+		 "type": "uint256"
+		}
+	 ],
+	 "name": "logUsrBuy",
+	 "type": "event"
+	},
+	{
+	 "anonymous": false,
+	 "inputs": [
+		{
+		 "indexed": true,
+		 "name": "playerAddress",
+		 "type": "address"
+		},
+		{
+		 "indexed": false,
+		 "name": "money",
+		 "type": "uint256"
+		},
+		{
+		 "indexed": false,
+		 "name": "timeStamp",
+		 "type": "uint256"
+		}
+	 ],
+	 "name": "logWithDraw",
+	 "type": "event"
+	},
+	{
+	 "anonymous": false,
+	 "inputs": [
+		{
+		 "indexed": true,
+		 "name": "who",
+		 "type": "address"
+		},
+		{
+		 "indexed": true,
+		 "name": "target",
+		 "type": "address"
+		},
+		{
+		 "indexed": false,
+		 "name": "money",
+		 "type": "uint256"
+		},
+		{
+		 "indexed": false,
+		 "name": "timeStamp",
+		 "type": "uint256"
+		}
+	 ],
+	 "name": "logAdminWithDraw",
+	 "type": "event"
 	}
-	],
-	"name": "buy",
-	"outputs": [],
-	"payable": true,
-	"stateMutability": "payable",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [],
-	"name": "renounceOwnership",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [
-	{
-	"name": "initFlag",
-	"type": "bool"
-	}
-	],
-	"name": "startGame",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [],
-	"name": "stopGame",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [
-	{
-	"name": "newOwner",
-	"type": "address"
-	}
-	],
-	"name": "transferOwnership",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [
-	{
-	"name": "mmin",
-	"type": "uint256"
-	},
-	{
-	"name": "mmax",
-	"type": "uint256"
-	}
-	],
-	"name": "uptBuyEth",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [
-	{
-	"name": "plays",
-	"type": "address[]"
-	},
-	{
-	"name": "selfEths",
-	"type": "uint256[]"
-	},
-	{
-	"name": "fatherEths",
-	"type": "uint256[]"
-	},
-	{
-	"name": "ffatherEths",
-	"type": "uint256[]"
-	},
-	{
-	"name": "fffatherEths",
-	"type": "uint256[]"
-	}
-	],
-	"name": "uptPlayerEth",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [],
-	"name": "withdraw",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-	"inputs": [
-	{
-	"name": "mmin",
-	"type": "uint256"
-	},
-	{
-	"name": "mmax",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "constructor"
-	},
-	{
-	"payable": true,
-	"stateMutability": "payable",
-	"type": "fallback"
-	},
-	{
-	"anonymous": false,
-	"inputs": [
-	{
-	"indexed": true,
-	"name": "playerAddress",
-	"type": "address"
-	},
-	{
-	"indexed": true,
-	"name": "refAddress",
-	"type": "address"
-	},
-	{
-	"indexed": false,
-	"name": "isNewPlayer",
-	"type": "bool"
-	},
-	{
-	"indexed": false,
-	"name": "money",
-	"type": "uint256"
-	},
-	{
-	"indexed": false,
-	"name": "timeStamp",
-	"type": "uint256"
-	}
-	],
-	"name": "logUsrBuy",
-	"type": "event"
-	},
-	{
-	"anonymous": false,
-	"inputs": [
-	{
-	"indexed": true,
-	"name": "playerAddress",
-	"type": "address"
-	},
-	{
-	"indexed": false,
-	"name": "money",
-	"type": "uint256"
-	},
-	{
-	"indexed": false,
-	"name": "timeStamp",
-	"type": "uint256"
-	}
-	],
-	"name": "logWithDraw",
-	"type": "event"
-	},
-	{
-	"anonymous": false,
-	"inputs": [
-	{
-	"indexed": true,
-	"name": "previousOwner",
-	"type": "address"
-	},
-	{
-	"indexed": true,
-	"name": "newOwner",
-	"type": "address"
-	}
-	],
-	"name": "OwnershipTransferred",
-	"type": "event"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "activated",
-	"outputs": [
-	{
-	"name": "",
-	"type": "bool"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "day",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "globalIncome",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "incomeView",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	},
-	{
-	"name": "",
-	"type": "uint256"
-	},
-	{
-	"name": "",
-	"type": "uint256"
-	},
-	{
-	"name": "",
-	"type": "uint256"
-	},
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "isOwner",
-	"outputs": [
-	{
-	"name": "",
-	"type": "bool"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"name": "luckyDogs",
-	"outputs": [
-	{
-	"name": "",
-	"type": "address"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "luckyIncome",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "MAX_LUCK",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "maxBuy",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "minBuy",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "NAME",
-	"outputs": [
-	{
-	"name": "",
-	"type": "string"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "owner",
-	"outputs": [
-	{
-	"name": "",
-	"type": "address"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "parentIncome",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"name": "playAddrs",
-	"outputs": [
-	{
-	"name": "",
-	"type": "address"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "retreatIncome",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "staticIncome",
-	"outputs": [
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "SYMBOL",
-	"outputs": [
-	{
-	"name": "",
-	"type": "string"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [
-	{
-	"name": "target",
-	"type": "address"
-	}
-	],
-	"name": "usrInfo",
-	"outputs": [
-	{
-	"name": "",
-	"type": "address"
-	},
-	{
-	"name": "",
-	"type": "address"
-	},
-	{
-	"name": "",
-	"type": "address"
-	},
-	{
-	"name": "",
-	"type": "uint256"
-	},
-	{
-	"name": "",
-	"type": "uint256"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "ZERO_ADDR",
-	"outputs": [
-	{
-	"name": "",
-	"type": "address"
-	}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	}
-	];
-var contractAddress = '0x32d0c814a386daf5d2140512ae3560905048506c';/* 发布之后在以太坊上生成的合约地址 */
+ ];
+var contractAddress = '0xc0a4f49ad5c22b7be227bca6a929c7a93d789226';/* 发布之后在以太坊上生成的合约地址 */
 var contractAbi = web3.eth.contract(abi)
 var myContract = contractAbi.at(contractAddress);

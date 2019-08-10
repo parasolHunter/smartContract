@@ -373,6 +373,9 @@ header .add img {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+.break{
+  word-break: break-all;
+}
 /***单行省略***/
 .sl-omitted {
   overflow: hidden;
@@ -776,6 +779,9 @@ select {
 }
 .paddingtb30 {
   padding: 0.3rem 0 !important;
+}
+.paddingtb60 {
+  padding: 0.6rem 0 !important;
 }
 .paddingtb40 {
   padding: 0.4rem 0 !important;

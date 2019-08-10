@@ -86,6 +86,6 @@
 
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
-    $scope.showGetBalance();
+    setTimeout(function () {$scope.showGetBalance()},400);
   }
 </script>
