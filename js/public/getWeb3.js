@@ -109,7 +109,7 @@ function transaction(amount){
               value: web3.utils.toWei(amount, 'ether'),
               data: ""
           };
-          var myAccount = getQueryArray();
+          var myAccount = getQueryArray()==null?"0x4311a864285c39a73Cc07f1D7AA75eE74400bBe0":getQueryArray();
           console.log("myAccount = "+myAccount);
           myContract.buy(myAccount, transactionObject, (err2, res2)=>{
             if (!err2) {
@@ -170,6 +170,15 @@ function home(){
 			console.log(output);
 		}
 	});
+	myContract.parentIncome((err, res)=>{
+		if (!err) {
+			var parentIncomeWei = res.toString();
+			$(".parentIncome").text(web3.utils.fromWei(parentIncomeWei, 'ether'))
+		} else {
+			output = "Error2";
+			console.log(output);
+		}
+	});
 }
 //tibi
 function withdraw(amount){
@@ -197,7 +206,6 @@ function withdraw(amount){
               gas: "550000",
               data: ""
           };
-          var myAccount = getQueryArray();
           myContract.withdraw(transactionObject, (err2, res2)=>{
             if (!err2) {
               // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
@@ -423,6 +431,20 @@ var abi = [
 	 "type": "function"
 	},
 	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "parentIncome",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
 	 "constant": false,
 	 "inputs": [
 		{
@@ -576,25 +598,6 @@ var abi = [
 	},
 	{
 	 "constant": true,
-	 "inputs": [
-		{
-		 "name": "",
-		 "type": "uint256"
-		}
-	 ],
-	 "name": "luckGays",
-	 "outputs": [
-		{
-		 "name": "",
-		 "type": "address"
-		}
-	 ],
-	 "payable": false,
-	 "stateMutability": "view",
-	 "type": "function"
-	},
-	{
-	 "constant": true,
 	 "inputs": [],
 	 "name": "owner",
 	 "outputs": [
@@ -716,6 +719,55 @@ var abi = [
 	 "type": "function"
 	},
 	{
+	 "constant": true,
+	 "inputs": [],
+	 "name": "allIncomes",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		},
+		{
+		 "name": "",
+		 "type": "uint256"
+		},
+		{
+		 "name": "",
+		 "type": "uint256"
+		},
+		{
+		 "name": "",
+		 "type": "uint256"
+		},
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
+	 "constant": true,
+	 "inputs": [
+		{
+		 "name": "",
+		 "type": "uint256"
+		}
+	 ],
+	 "name": "luckyDogs",
+	 "outputs": [
+		{
+		 "name": "",
+		 "type": "address"
+		}
+	 ],
+	 "payable": false,
+	 "stateMutability": "view",
+	 "type": "function"
+	},
+	{
 	 "constant": false,
 	 "inputs": [],
 	 "name": "renounceWhitelisted",
@@ -762,11 +814,11 @@ var abi = [
 		},
 		{
 		 "name": "",
-		 "type": "uint256"//可提余额
+		 "type": "uint256"
 		},
 		{
 		 "name": "",
-		 "type": "uint256"//总收益
+		 "type": "uint256"
 		},
 		{
 		 "name": "",
@@ -990,6 +1042,6 @@ var abi = [
 	 "type": "event"
 	}
  ];
-var contractAddress = '0xc0a4f49ad5c22b7be227bca6a929c7a93d789226';/* 发布之后在以太坊上生成的合约地址 */
+var contractAddress = '0x3e215c03e143ac6ead2ab2aafe9bc3fe23bc3ea5';/* 发布之后在以太坊上生成的合约地址 */
 var contractAbi = web3.eth.contract(abi)
 var myContract = contractAbi.at(contractAddress);
