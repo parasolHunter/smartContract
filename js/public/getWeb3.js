@@ -50,6 +50,7 @@ function showAccounts() {
   })
 }
 
+//当前交易哈希获得信息
 function parseResultObject(res){
   var output = "";
 
@@ -79,8 +80,22 @@ function parseResultObject(res){
   }
   return output;
 }
+//当前交易哈希获得信息
+function getTransactionReceipt(transactionHash){
+  web3.eth.getTransactionReceipt(transactionHash, (err, res) => {
+    console.log("tradeLists = "+res);
+    var output = "";
+    if (!err) {
+      output += parseResultObject(res);
+    } else {
+      output = "Error";
+    }
+    console.log(output);
+    console.log(res);
+  })
+}
 
-//canyu
+//join or transaction
 function transaction(amount){
   var appElement = document.querySelector('[ng-controller=myContr]');
   var $scope = angular.element(appElement).scope(); 
@@ -263,20 +278,17 @@ function shouyi_r(){
   })
 }
 
-function getTransactionReceipt(transactionHash){
-  web3.eth.getTransactionReceipt(transactionHash, (err, res) => {
-    console.log("tradeLists = "+res);
-    var output = "";
-    if (!err) {
-      output += parseResultObject(res);
-    } else {
-      output = "Error";
-    }
-    console.log(output);
-    console.log(res);
-  })
+function joinRecord(){
+	myContract.staticIncome((err, res)=>{
+		if (!err) {
+			var staticIncomeWei = res.toString();
+			$(".staticIncome").text(web3.utils.fromWei(staticIncomeWei, 'ether'))
+		} else {
+			output = "Error2";
+			console.log(output);
+		}
+	});
 }
-
 
 function isWeb(){
   if (typeof web3 == 'undefined') {
@@ -287,6 +299,6 @@ function isWeb(){
   }
 }
 
-var contractAddress = '0x9cb16b4934931cdab467fde6fa8d0e1480d92ed5';/* 发布之后在以太坊上生成的合约地址 */
+var contractAddress = '0x5d80c77be60aa7944805869bc8379aa0a26355b0';/* 发布之后在以太坊上生成的合约地址 */
 var contractAbi = web3.eth.contract(abi)
 var myContract = contractAbi.at(contractAddress);
