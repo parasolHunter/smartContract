@@ -72,7 +72,7 @@
           console.log(etherStr);
           var etherArray = new Array();
           etherArray = etherStr.split(",");
-          $(".eth").text(etherArray[0]);
+          $(".eth").text(String(etherArray[0]).replace(/^(.*\..{4}).*$/,"$1"));
 
           $scope.ajaxStatus = false;
         })

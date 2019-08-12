@@ -50,11 +50,11 @@ app.controller("myContr", function($scope, $http) {
 		},function(){}); */
 		
 		
-		blackInput.show("参与","请输入数量","• 最小投资为0.001个ETH","确认","取消",function(){
+		blackInput.show("参与","请输入数量","• 最小投资为0.5个ETH","确认","取消",function(){
       var uname = $("#blackInput input").val();
 
-      if(uname < 0.001){
-        blackDialog.show('最小投资为0.001个ETH');
+      if(uname < 0.5){
+        blackDialog.show('最小投资为0.5个ETH');
         $("#blackInput").hide();
         return;
       }

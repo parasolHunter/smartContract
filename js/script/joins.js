@@ -21,19 +21,11 @@ app.controller("myContr", function($scope, $http) {
   $scope.gameStatus = true;
   $scope.ajaxStatus = false;
   $scope.etherStr = "";
-  // var output = "";
-  // if (typeof web3 !== 'undefined') {
-  //   myContract.incomeView((err, res)=>{
-  //     if (!err) {
-  //       console.log(res)
-  //       var staticIncomeWei = res[0].toString();
-  //       $(".staticIncome").text(web3.utils.fromWei(staticIncomeWei, 'ether'))
-  //     } else {
-  //       output = "Error2";
-  //       console.log(output);
-  //     }
-  //   });
-  // }
+
+  if (typeof web3 !== 'undefined') {
+    setTimeout(function(){shouyi_r()},400);
+  }
+  
   $scope.dataList = [{amount: 0.55, time: '2019-08-06', status: 0},{amount: 0.55, time: '2019-05-11', status: 1},{amount: 0.55, time: '2019-01-12', status: 2}];
 	$scope.join=function(){
     if(isWeb() == 1){
@@ -42,11 +34,11 @@ app.controller("myContr", function($scope, $http) {
 
 		$("#blackInput input").val("");
 		
-		blackInput.show("参与","请输入数量","• 最小投资为0.001个ETH","确认","取消",function(){
+		blackInput.show("参与","请输入数量","• 最小投资为0.5个ETH","确认","取消",function(){
       var uname = $("#blackInput input").val();
 
-      if(uname < 0.001){
-        blackDialog.show('最小投资为0.001个ETH');
+      if(uname < 0.5){
+        blackDialog.show('最小投资为0.5个ETH');
         $("#blackInput").hide();
         return;
       }
