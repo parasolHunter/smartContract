@@ -21,7 +21,6 @@
 			<header ng-include="'inc_header.html?v=20190805'"></header>
 			<div id="baseContent">
 				<div id="record">
-					
 					<div class="record_join">
 						<div class="record_item">
 							<div class="fonts60 fontBold shouyi_sum"></div>
@@ -32,13 +31,13 @@
 					
 					<div class="item3">
 						<div class="item3-title itemH100 paddingl60" data-localize="join.msg2">投资记录</div>
-						<div class="item3-content item3-bg" ng-repeat="k in dataList">
+						<div class="item3-content item3-bg" ng-repeat="k in joinslist">
 							<div class="item3-content-text colorfff padding-20-50">
 								<div class="flex justifyBetween height65">
 									<div class="color-c7cad3 fonts36">+{{k.amount}}</div>
 									<div class="fonts24 textRight">
-										<div ng-class="{0:'color-red',1:'color-green',2:'color-c7cad3'}[k.status]">{{k.status == 0 ? '进行中':(k.status == 1 ? '已出局':'已结束')}}</div>
-										<div>{{k.time}}</div>
+										<div ng-class="{0:'color-red',1:'color-green',2:'color-c7cad3'}[k.status]">{{k.type == 0 ? '进行中':(k.type == 1 ? '已出局':'已结束')}}</div>
+										<div>{{k.date}}</div>
 									</div>
 								</div>
 							</div>

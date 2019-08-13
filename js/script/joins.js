@@ -23,10 +23,11 @@ app.controller("myContr", function($scope, $http) {
   $scope.etherStr = "";
 
   if (typeof web3 !== 'undefined') {
-    setTimeout(function(){shouyi_r()},400);
+    shouyi_r('join');
+    $scope.joinslist = parse(getSession('joinslist'));
   }
   
-  $scope.dataList = [{amount: 0.55, time: '2019-08-06', status: 0},{amount: 0.55, time: '2019-05-11', status: 1},{amount: 0.55, time: '2019-01-12', status: 2}];
+  // $scope.dataList = [{amount: 0.55, time: '2019-08-06', status: 0},{amount: 0.55, time: '2019-05-11', status: 1},{amount: 0.55, time: '2019-01-12', status: 2}];
 	$scope.join=function(){
     if(isWeb() == 1){
       return

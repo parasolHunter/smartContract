@@ -44,82 +44,16 @@
 							<img class="width_300 margint100" src="img/index/none.png"/>
 							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>
-						<div ng-if="iscode==1">
-							<div class="item3-content item3-bg">
+						<div ng-if="iscode==1 && incomeslist">
+							<div class="item3-content item3-bg" ng-repeat="k in incomeslist">
 								<div class="item3-content-text colorfff padding-20-50">
 									<div class="flex justifyBetween height65">
 										<div class="color-c7cad3 fonts36">
-											<span>+0.55</span>
+											<span>+{{k.amount}}</span>
 										</div>
 										<div class="fonts24 textRight">
-											<div>静态分红</div>
-											<div>6-20</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">
-											<span>+0.55</span>
-										</div>
-										<div class="fonts24 textRight">
-											<div>推荐奖</div>
-											<div>6-20</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">
-											<span>+0.55</span>
-											<span class="fonts24">(ETV)</span>
-										</div>
-										<div class="fonts24 textRight">
-											<div>全球分红</div>
-											<div>6-20</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">
-											<span>+0.55</span>
-										</div>
-										<div class="fonts24 textRight">
-											<div>bonus奖</div>
-											<div>6-20</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">
-											<span>+0.55</span>
-										</div>
-										<div class="fonts24 textRight">
-											<div>退本</div>
-											<div>6-20</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">
-											<span>+0.55</span>
-										</div>
-										<div class="fonts24 textRight">
-											<div>V级退本静态补贴</div>
-											<div>6-20</div>
+											<div>{{k.type == 1 ? '推荐奖':(k.type == 2 ? '抽奖':(k.type == 3 ? '静态分红':(k.type == 4 ? '全球分红':(k.type == 5 ? '保险':''))))}}</div>
+											<div>{{k.date}}</div>
 										</div>
 									</div>
 								</div>

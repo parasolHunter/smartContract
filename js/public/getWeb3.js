@@ -242,7 +242,7 @@ function withdraw(amount){
 
 
 //shouyi
-function shouyi_r(){
+function shouyi_r(type){
   var appElement = document.querySelector('[ng-controller=myContr]');
   var $scope = angular.element(appElement).scope(); 
 
@@ -257,7 +257,7 @@ function shouyi_r(){
         //   return;
         // }
         // $scope.ajaxStatus = true;
-  
+        
 				myContract.usrInfo(account,(err2, res2)=>{
 					if (!err2) {
 						console.log(res2)
@@ -269,25 +269,54 @@ function shouyi_r(){
 						output = "Error2";
 						console.log(output);
 					}
-				})
+        })
+        if(type == 'join'){
+          _url = api+'/record/'+account;
+        }else if(type == 'income'){
+          _url = api+'/income/'+account;
+        }
+        $.ajax({
+          url: _url,
+          type: 'GET',
+          dataType: 'json',
+          // headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+          // headers: {'Content-Type': 'application/json;charset=UTF-8'},
+          //跨域
+          // xhrFields: {
+          //     withCredentials: true
+          // },
+			    // crossDomain: true,
+          // dataType: 'jsonp',
+          timeout: 30000,
+          success: function (res) {
+              setTimeout(function(){
+                if(type == 'join'){
+                  var joinslist = res.data.detail;
+                  for(var i = 0; i < joinslist.length; i++){
+                    joinslist[i].amount = Number(web3.utils.fromWei(joinslist[i].amount.toString(), 'ether')).toFixed(6);
+                  }
+                  setSession('joinslist',stringify(joinslist));
+                }else if(type == 'income'){
+                  var incomeslist = res.data.detail;
+                  for(var i = 0; i < incomeslist.length; i++){
+                    incomeslist[i].amount = Number(web3.utils.fromWei(incomeslist[i].amount.toString(), 'ether')).toFixed(6);
+                  }
+                  setSession('incomeslist',stringify(incomeslist));
+                }
+              },400)
+          },
+          error: function (XMLHttpRequest, textStatus) {
+            console.log(XMLHttpRequest, textStatus);
+          },
+          complete: function (XMLHttpRequest, textStatus) {
+          }
+        });
       }
     } else {
       output = "Error1";
     }
     console.log(output);
   })
-}
-
-function joinRecord(){
-	myContract.staticIncome((err, res)=>{
-		if (!err) {
-			var staticIncomeWei = res.toString();
-			$(".staticIncome").text(web3.utils.fromWei(staticIncomeWei, 'ether'))
-		} else {
-			output = "Error2";
-			console.log(output);
-		}
-	});
 }
 
 function isWeb(){
@@ -302,3 +331,4 @@ function isWeb(){
 var contractAddress = '0x5d80c77be60aa7944805869bc8379aa0a26355b0';/* 发布之后在以太坊上生成的合约地址 */
 var contractAbi = web3.eth.contract(abi)
 var myContract = contractAbi.at(contractAddress);
+var api = 'http://192.168.2.205:1520';
