@@ -42,7 +42,7 @@ app.controller("myContr", function($scope, $http) {
   var host = window.location.host;//当前域名端口
   var invitationUrl = protocolStr + '//' + host + '/index.html';
   console.log(invitationUrl);
-
+alert(getSession('account'))
   if(getSession('account')){
     $scope.invitationUrl = invitationUrl+'?recommendAccount='+getSession('account');
   }
