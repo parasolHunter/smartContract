@@ -1,5 +1,5 @@
 var urlRopsten = 'ropsten.infura.io/v3/f80e07a587c24a5a9d8fc1874d266553';
-window.addEventListener('load', function() {
+window.addEventListener('load', async()=> {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
     //新版metamask
