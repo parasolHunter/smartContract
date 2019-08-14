@@ -129,19 +129,21 @@ function transaction(amount){
           };
           var myAccount = getQueryArray()==null?"0x00":getQueryArray();
           console.log("myAccount = "+myAccount);
-          myContract.invest(myAccount, transactionObject, (err2, res2)=>{
-            $scope.ajaxStatus = false;
-            loadingDialog.hide();
-            if (!err2) {
-              // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
-              location.reload();
-            } else {
-              output = "Error2";
-              console.log(output);
-              location.reload();
-            }
-            $("#blackInput").hide();
-          })
+          setTimeout(function(){
+            myContract.invest(myAccount, transactionObject, (err2, res2)=>{
+              $scope.ajaxStatus = false;
+              loadingDialog.hide();
+              if (!err2) {
+                // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
+                location.reload();
+              } else {
+                output = "Error2";
+                console.log(output);
+                location.reload();
+              }
+              $("#blackInput").hide();
+            })
+          },400)
         });
       }
     } else {
