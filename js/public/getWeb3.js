@@ -130,9 +130,9 @@ function transaction(amount){
           var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
           // var recommendAccount = getSession('recommendAccount');
           console.log("recommendAccount = "+recommendAccount);
-          // setTimeout(function(){
-          //   blackDialog.redirect('请重新参与','home.html')
-          // },5000)
+          setTimeout(function(){
+            blackDialog.redirect('请重新参与','home.html')
+          },5000)
           myContract.invest(recommendAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;
             loadingDialog.hide();
