@@ -32,6 +32,9 @@ window.addEventListener('load', async()=> {
   }
 })
 
+var contractAbi = web3.eth.contract(abi);
+var myContract = contractAbi.at(contractAddress);
+
 function showAccounts() {
   web3.eth.getAccounts((err, res) => {
     console.log(res);
@@ -379,6 +382,3 @@ function isWeb(){
     return flag = 1; 
   }
 }
-
-var contractAbi = window.web3.eth.contract(abi);
-var myContract = contractAbi.at(contractAddress);
