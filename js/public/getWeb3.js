@@ -132,7 +132,7 @@ function transaction(amount){
           setTimeout(function(){
             alert(1)
             blackDialog.redirect('请重新参与','home.html')
-          },2000)
+          },5000)
           myContract.invest(myAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;
             loadingDialog.hide();
