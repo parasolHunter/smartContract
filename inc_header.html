@@ -17,7 +17,7 @@
   <div class="flex justifyBetween info">
     <div class="flex justifyStart">
         <div class="marginr20 flex justifyStart"><img class="marginr10" src="img/index/ETH@2x.png" alt="" style="display: block;width: 0.14rem;"> <span class="eth"></span></div>
-        <div class="flex justifyStart"><img class="" src="img/index/people@2x.png" alt=""  style="display: block;width: 0.22rem;margin-right: 0.1rem;"> <span>0</span></div>
+        <div class="flex justifyStart"><img class="" src="img/index/people@2x.png" alt=""  style="display: block;width: 0.22rem;margin-right: 0.1rem;"> <span>{{team.amount}}</span></div>
     </div>
     <div class="sw_lang"></div>
   </div>
@@ -52,11 +52,11 @@
         
         setSession("account",account);
 
-        if ($scope.ajaxStatus == true) {
-          console.log("正在请求中。。。。。");
-          return;
-        }
-        $scope.ajaxStatus = true;
+        // if ($scope.ajaxStatus == true) {
+        //   console.log("正在请求中。。。。。");
+        //   return;
+        // }
+        // $scope.ajaxStatus = true;
 
         web3.eth.getBalance(account, (err2, res2) => {
           if (!err2) {
@@ -76,6 +76,32 @@
           $scope.$apply();
           $scope.ajaxStatus = false;
         })
+
+        var _url = '/api/index/'+account;
+
+        $.ajax({
+          url: _url,
+          type: 'GET',
+          dataType: 'json',
+          // headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+          // headers: {'Content-Type': 'application/json;charset=UTF-8'},
+          //跨域
+          // xhrFields: {
+          //     withCredentials: true
+          // },
+          // crossDomain: true,
+          // dataType: 'jsonp',
+          timeout: 30000,
+          success: function (res) {
+            $scope.team = res.data;
+            $scope.$apply();
+          },
+          error: function (XMLHttpRequest, textStatus) {
+            console.log(XMLHttpRequest, textStatus);
+          },
+          complete: function (XMLHttpRequest, textStatus) {
+          }
+        });
       }
     } else {
       output = "Error1";
@@ -86,6 +112,8 @@
 
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
   if (typeof web3 !== 'undefined') {
-    setTimeout(function () {$scope.showGetBalance()},400);
+    setTimeout(function () {
+      $scope.showGetBalance();
+    },400);
   }
 </script>

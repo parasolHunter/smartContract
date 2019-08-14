@@ -22,7 +22,7 @@
 			<header ng-include="'inc_header.html?v=20190814'"></header>
 			<div id="baseContent">
 				<div id="home">
-					<div class="item-retreat" ng-if="!gameStatus">
+					<div class="item-retreat" ng-if="team.global == 0">
 						<div class="item-retreat-bg">
 							<div class="item-retreat-box p-ct span100 textCenter">
 								<div class="item-retreat-text1" data-localize="home.msg15">退本中！</div>
@@ -36,7 +36,9 @@
 							<div class="item1-box p-ct paddingl60">
 								<div class="item1-text1">公平 公正 公开</div>
 								<div class="item1-text2">Fair and open</div>
-								<div ng-click="join()" class="joinBtn" ng-class="{false:'btn-disabled',true:''}[gameStatus]"><em data-localize="home.msg2">立即参与</em><i> &rarr;</i></div>
+								<!-- <div ng-click="join()" class="joinBtn" ng-class="{0:'btn-disabled',1:''}[team.global]"><em data-localize="home.msg2">立即参与</em><i> &rarr;</i></div> -->
+								<div ng-if="team.global == 1" ng-click="join()" class="joinBtn"><em data-localize="home.msg2">立即参与</em><i> &rarr;</i></div>
+								<div ng-if="team.global == 0" class="joinBtn btn-disabled"><em data-localize="home.msg2">立即参与</em><i> &rarr;</i></div>
 							</div>
 						</div>
 					</div>

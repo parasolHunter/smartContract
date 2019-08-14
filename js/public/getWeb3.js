@@ -279,9 +279,9 @@ function shouyi_r(type){
 					}
         })
         if(type == 'join'){
-          var _url = api+'/records/'+account;
+          var _url = '/api/records/'+account;
         }else if(type == 'income'){
-          var _url = api+'/incomes/'+account;
+          var _url = '/api/incomes/'+account;
         }
         $.ajax({
           url: _url,
@@ -342,7 +342,7 @@ function tuijian (){
         //   return;
         // }
         // $scope.ajaxStatus = true;
-        var _url = api+'/achievements/income/'+account;
+        var _url = '/api/achievements/income/'+account;
 
         $.ajax({
           url: _url,
@@ -360,53 +360,6 @@ function tuijian (){
           success: function (res) {
             $scope.yeji = res.data;
             $scope.tuijianlist = res.data.son;
-            $scope.$apply();
-          },
-          error: function (XMLHttpRequest, textStatus) {
-            console.log(XMLHttpRequest, textStatus);
-          },
-          complete: function (XMLHttpRequest, textStatus) {
-          }
-        });
-      }
-    } else {
-      output = "Error1";
-    }
-    console.log(output);
-  })
-}
-function team (){
-  var appElement = document.querySelector('[ng-controller=myContr]');
-  var $scope = angular.element(appElement).scope(); 
-
-  web3.eth.getAccounts((err, res) => {
-    console.log(res)
-    $scope.ajaxStatus = false;
-    if (!err) {
-      for (i=0; i< res.length; i++){
-        var account = res[i];
-        // if ($scope.ajaxStatus == true) {
-        //   console.log("正在请求中。。。。。");
-        //   return;
-        // }
-        // $scope.ajaxStatus = true;
-        var _url = api+'/achievements/income/'+account;
-
-        $.ajax({
-          url: _url,
-          type: 'GET',
-          dataType: 'json',
-          // headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-          // headers: {'Content-Type': 'application/json;charset=UTF-8'},
-          //跨域
-          // xhrFields: {
-          //     withCredentials: true
-          // },
-			    // crossDomain: true,
-          // dataType: 'jsonp',
-          timeout: 30000,
-          success: function (res) {
-            $scope.team = res.data.son;
             $scope.$apply();
           },
           error: function (XMLHttpRequest, textStatus) {
