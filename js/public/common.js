@@ -15,7 +15,7 @@ document.write('<script language="javascript" type="text/javascript" src="../js/
 document.write('<script src="../js/web3/ethjs-util.min.js" type="text/javascript" charset="utf-8"></script>');
 //获取智能合约
 document.write('<script src="../js/public/abi.js?v=20190816" type="text/javascript" charset="utf-8"></script>');
-document.write('<script src="../js/public/getWeb3.js?v=20190822" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="../js/public/getWeb3.js?v=20190823" type="text/javascript" charset="utf-8"></script>');
 //计算中部内容器高度
 document.write('<script src="../js/public/resizeContent.js?v=20181022" type="text/javascript" charset="utf-8"></script>');
 //消除移动设备点击延时的插件
