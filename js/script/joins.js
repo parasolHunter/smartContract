@@ -23,8 +23,9 @@ app.controller("myContr", function($scope, $http) {
   $scope.etherStr = "";
 
   if (typeof web3 !== 'undefined') {
-    shouyi_r('join');
-    $scope.joinslist = parse(getSession('joinslist'));
+    setTimeout(function () {
+      shouyi_r('join');
+    },400)
   }
   
   // $scope.dataList = [{amount: 0.55, time: '2019-08-06', status: 0},{amount: 0.55, time: '2019-05-11', status: 1},{amount: 0.55, time: '2019-01-12', status: 2}];

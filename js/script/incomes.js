@@ -21,8 +21,9 @@ app.controller("myContr", function($scope, $http) {
   $scope.invitationUrl = '';
   $scope.iscode=1;
   if (typeof web3 !== 'undefined') {
-    shouyi_r('income');
-    $scope.incomeslist = parse(getSession('incomeslist'));
+    setTimeout(function () {
+      shouyi_r('income');
+    },400)
   }
   $scope.coin = function() {
     if(isWeb() == 1){

@@ -19,7 +19,14 @@ app.directive("repeatFinish", function($timeout) {
 
 app.controller("myContr", function($scope, $http) {
   $scope.invitationUrl = '';
-	$scope.iscode=1;
+  $scope.iscode=1;
+  
+  if (typeof web3 !== 'undefined') {
+    setTimeout(function () {
+      tuijian();
+    },400)
+  }
+
   $scope.copy = function(message) {
 				var input = document.createElement("input");
 				input.value = message;

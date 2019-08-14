@@ -41,7 +41,7 @@
 						<div class="item2-content flex">
 							<div class="content-left">
 								<div class="item2-box item2-box-big item2-bg borderRadius5">
-									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data1">{{yeji.all}}</div>
 									<div class="item2-box-data2" data-localize="invite.msg3">累计业绩</div>
 									<img src="img/index/ljyj_icon.png" alt="" srcset="">
 								</div>
@@ -49,12 +49,12 @@
 							<div class="content-right">
 								<div class="item2-box borderRadius5 item2-bg">
 									<img src="img/index/dqyj_icon.png" alt="" srcset="">
-									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data1">{{yeji.max}}</div>
 									<div class="item2-box-data2" data-localize="invite.msg4">大区业绩</div>
 								</div>
 								<div class="item2-box borderRadius5 item2-bg">
 									<img src="img/index/xqyj_icon.png" alt="" srcset="">
-									<div class="item2-box-data1">15.2333</div>
+									<div class="item2-box-data1">{{yeji.min}}</div>
 									<div class="item2-box-data2" data-localize="invite.msg5">小区业绩</div>
 								</div>
 							</div>
@@ -67,23 +67,7 @@
 							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>
 						<div ng-if="iscode==1">
-							<div class="item3-content item3-bg">
-								<div class="item3-content-text colorfff padding-20-30">
-									<div class="flex">
-										<div class="flex">
-											<img class="marginr10" src="img/index/star_checked.png"/>
-											<img class="marginr10" src="img/index/star_checked.png"/>
-											<img class="marginr10" src="img/index/star_checked.png"/>
-										</div>
-										<div class="fonts24 marginl20 color-c7cad3">6-20</div>
-									</div>
-									<div class="flex justifyBetween">
-										<div class="item_br width_74P sl-omitted paddingr20">0x1E839659F934B54Db3dD864675E33A258041b22D</div>
-										<div ng-click="copy('ddd')" class="re_copyBtn_1 paddingl30 paddingr30 fonts24 borderRadius5">复制</div>
-									</div>
-								</div>
-							</div>
-							<div class="item3-content item3-bg">
+							<div class="item3-content item3-bg" ng-repeat="k in tuijianlist">
 								<div class="item3-content-text colorfff padding-20-30">
 									<div class="flex">
 										<div class="flex">
@@ -94,8 +78,8 @@
 										<div class="fonts24 marginl20 color-c7cad3">6-20</div>
 									</div>
 									<div class="flex justifyBetween">
-										<div class="item_br width_74P sl-omitted paddingr20">0x1E839659F934B54Db3dD864675E33A258041b22D</div>
-										<div ng-click="copy('ddd')" class="re_copyBtn_1 paddingl30 paddingr30 fonts24 borderRadius5">复制</div>
+										<div class="item_br width_74P sl-omitted paddingr20">{{k}}</div>
+										<div ng-click="copy(k)" class="re_copyBtn_1 paddingl30 paddingr30 fonts24 borderRadius5">复制</div>
 									</div>
 								</div>
 							</div>
