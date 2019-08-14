@@ -754,3 +754,4 @@ const abi = [
 		"type": "function"
 	}
 ];
+const contractAddress = '0x5d80c77be60aa7944805869bc8379aa0a26355b0';/* 发布之后在以太坊上生成的合约地址 */
