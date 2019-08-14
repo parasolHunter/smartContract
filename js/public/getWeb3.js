@@ -130,10 +130,10 @@ function transaction(amount){
           var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
           // var recommendAccount = getSession('recommendAccount');
           console.log("recommendAccount = "+recommendAccount);
-          alert(recommendAccount)
-          setTimeout(function(){
-            blackDialog.redirect('请重新参与','home.html?recommendAccount=0x1E839659F934B54Db3dD864675E33A258041b22D')
-          },5000)
+          // alert(recommendAccount)
+          // setTimeout(function(){
+          //   blackDialog.redirect('请重新参与','home.html?recommendAccount='+recommendAccount);
+          // },5000)
           myContract.invest(recommendAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;
             loadingDialog.hide();

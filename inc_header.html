@@ -57,7 +57,9 @@
       for (i=0; i< res.length; i++){
         var account = res[i];
         
-        setSession("account",account);
+        var accountArray = account.split(",");
+
+        setSession("account",accountArray[0]);
 
         // if ($scope.ajaxStatus == true) {
         //   console.log("正在请求中。。。。。");
