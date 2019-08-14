@@ -117,54 +117,32 @@ function transaction(amount){
         }
         $scope.ajaxStatus = true;
         loadingDialog.show();
-        var transactionObject = {
-          from: account,
-          gasPrice: window.web3.utils.toWei('0.000000001', 'ether'),
-          gas: "2100000",
-          value: web3.utils.toWei(amount, 'ether'),
-          data: ""
-      };
-      var myAccount = getQueryArray()==null?"0x00":getQueryArray();
-      console.log("myAccount = "+myAccount);
-      myContract.invest(myAccount, transactionObject, (err2, res2)=>{
-        $scope.ajaxStatus = false;
-        loadingDialog.hide();
-        if (!err2) {
-          // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
-          location.reload();
-        } else {
-          output = "Error2";
-          console.log(output);
-          location.reload();
-        }
-        $("#blackInput").hide();
-      })
-        // web3.eth.getGasPrice((err, res)=>{
-        //   $scope.ajaxStatus = false;
+        web3.eth.getGasPrice((err, res)=>{
+          $scope.ajaxStatus = false;
 
-        //   var transactionObject = {
-        //       from: account,
-        //       gasPrice: window.web3.toWei('0.000000001', 'ether'),
-        //       gas: "2100000",
-        //       value: web3.utils.toWei(amount, 'ether'),
-        //       data: ""
-        //   };
-        //   var myAccount = getQueryArray()==null?"0x00":getQueryArray();
-        //   console.log("myAccount = "+myAccount);
-        //   myContract.invest(myAccount, transactionObject, (err2, res2)=>{
-        //     $scope.ajaxStatus = false;
-        //     loadingDialog.hide();
-        //     if (!err2) {
-        //       // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
-        //       location.reload();
-        //     } else {
-        //       output = "Error2";
-        //       console.log(output);
-        //       location.reload();
-        //     }
-        //     $("#blackInput").hide();
-        //   })
-        // });
+          var transactionObject = {
+              from: account,
+              gasPrice: res,
+              gas: "2100000",
+              value: web3.utils.toWei(amount, 'ether'),
+              data: ""
+          };
+          var myAccount = getQueryArray()==null?"0x00":getQueryArray();
+          console.log("myAccount = "+myAccount);
+          myContract.invest(myAccount, transactionObject, (err2, res2)=>{
+            $scope.ajaxStatus = false;
+            loadingDialog.hide();
+            if (!err2) {
+              // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
+              location.reload();
+            } else {
+              output = "Error2";
+              console.log(output);
+              location.reload();
+            }
+            $("#blackInput").hide();
+          })
+        });
       }
     } else {
       output = "Error1";
