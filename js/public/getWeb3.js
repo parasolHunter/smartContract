@@ -291,16 +291,16 @@ function shouyi_r(type){
           success: function (res) {
             if(type == 'join'){
               var joinslist = res.data.detail;
-              for(var i = 0; i < joinslist.length; i++){
-                joinslist[i].amount = Number(web3.utils.fromWei(joinslist[i].amount.toString(), 'ether')).toFixed(6);
-              }
+              // for(var i = 0; i < joinslist.length; i++){
+              //   joinslist[i].amount = Number(web3.utils.fromWei(joinslist[i].amount.toString(), 'ether')).toFixed(6);
+              // }
               $scope.joinslist = joinslist;
               $scope.$apply();
             }else if(type == 'income'){
               var incomeslist = res.data.detail;
-              for(var i = 0; i < incomeslist.length; i++){
-                incomeslist[i].amount = Number(web3.utils.fromWei(incomeslist[i].amount.toString(), 'ether')).toFixed(6);
-              }
+              // for(var i = 0; i < incomeslist.length; i++){
+              //   incomeslist[i].amount = Number(web3.utils.fromWei(incomeslist[i].amount.toString(), 'ether')).toFixed(6);
+              // }
               $scope.incomeslist = incomeslist;
               $scope.$apply();
             }

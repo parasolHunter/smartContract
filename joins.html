@@ -31,7 +31,7 @@
 					
 					<div class="item3">
 						<div class="item3-title itemH100 paddingl60" data-localize="join.msg2">投资记录</div>
-						<div class="item3-content item3-bg" ng-repeat="k in joinslist">
+						<div ng-if="joinslist" class="item3-content item3-bg" ng-repeat="k in joinslist">
 							<div class="item3-content-text colorfff padding-20-50">
 								<div class="flex justifyBetween height65">
 									<div class="color-c7cad3 fonts36">+{{k.amount}}</div>
@@ -42,7 +42,7 @@
 								</div>
 							</div>
 						</div>
-						<div ng-if="dataList.length <= 0" class="noneRecord flex justifyCenter flexColumn">
+						<div ng-if="joinslist.length <= 0" class="noneRecord flex justifyCenter flexColumn">
 							<img class="width_300 margint100" src="img/index/none.png"/>
 							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>

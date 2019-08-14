@@ -19,7 +19,6 @@ app.directive("repeatFinish", function($timeout) {
 
 app.controller("myContr", function($scope, $http) {
   $scope.invitationUrl = '';
-  $scope.iscode=1;
   if (typeof web3 !== 'undefined') {
     setTimeout(function () {
       shouyi_r('income');

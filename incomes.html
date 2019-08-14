@@ -40,24 +40,22 @@
 					
 					<div class="item3">
 						<div class="item3-title itemH100 paddingl60" data-localize="income.msg2">收益明细(ETH)</div>
-						<div ng-if="iscode==0" class="noneRecord flex justifyCenter flexColumn">
-							<img class="width_300 margint100" src="img/index/none.png"/>
-							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
-						</div>
-						<div ng-if="iscode==1 && incomeslist">
-							<div class="item3-content item3-bg" ng-repeat="k in incomeslist">
-								<div class="item3-content-text colorfff padding-20-50">
-									<div class="flex justifyBetween height65">
-										<div class="color-c7cad3 fonts36">
-											<span>+{{k.amount}}</span>
-										</div>
-										<div class="fonts24 textRight">
-											<div>{{k.type == 1 ? '推荐奖':(k.type == 2 ? '抽奖':(k.type == 3 ? '静态分红':(k.type == 4 ? '全球分红':(k.type == 5 ? '保险':''))))}}</div>
-											<div>{{k.date}}</div>
-										</div>
+						<div ng-if="incomeslist" class="item3-content item3-bg" ng-repeat="k in incomeslist">
+							<div class="item3-content-text colorfff padding-20-50">
+								<div class="flex justifyBetween height65">
+									<div class="color-c7cad3 fonts36">
+										<span>+{{k.amount}}</span>
+									</div>
+									<div class="fonts24 textRight">
+										<div>{{k.type == 1 ? '推荐奖':(k.type == 2 ? '抽奖':(k.type == 3 ? '静态分红':(k.type == 4 ? '全球分红':(k.type == 5 ? '保险':''))))}}</div>
+										<div>{{k.date}}</div>
 									</div>
 								</div>
 							</div>
+						</div>
+						<div ng-if="incomeslist.length <= 0" class="noneRecord flex justifyCenter flexColumn">
+							<img class="width_300 margint100" src="img/index/none.png"/>
+							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>
 					</div>
 				</div>
