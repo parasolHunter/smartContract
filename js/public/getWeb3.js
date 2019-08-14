@@ -32,6 +32,9 @@ window.addEventListener('load', function() {
   }
 })
 var contractAbi = web3.eth.contract(abi);
+if(!contractAbi){
+  blackDialog.redirect('请重新参与','home.html')
+}
 var myContract = contractAbi.at(contractAddress);
 
 function showAccounts() {
@@ -128,9 +131,7 @@ function transaction(amount){
           };
           var myAccount = getQueryArray()==null?"0x4311a864285c39a73Cc07f1D7AA75eE74400bBe0":getQueryArray();
           console.log("myAccount = "+myAccount);
-          if(!myContract){
-            blackDialog.redirect('请重新参与','home.html')
-          }
+          
           myContract.buy(myAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;
             loadingDialog.hide();
