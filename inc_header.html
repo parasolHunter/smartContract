@@ -73,7 +73,7 @@
           var etherArray = new Array();
           etherArray = etherStr.split(",");
           $(".eth").text(String(etherArray[0]).replace(/^(.*\..{4}).*$/,"$1"));
-
+          $scope.$apply();
           $scope.ajaxStatus = false;
         })
       }
