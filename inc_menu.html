@@ -100,11 +100,11 @@
       }
     }); */
   };
-
+  var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
   $scope.redirect = function(index) {
     switch (Number(index)) {
       case 1:
-        location.href = "home.html";
+        location.href = "home.html?recommendAccount="+recommendAccount;
         break;
       case 2:
         location.href = "#remark";
