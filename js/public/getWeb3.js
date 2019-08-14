@@ -130,8 +130,9 @@ function transaction(amount){
           var myAccount = getQueryArray()==null?"0x00":getQueryArray();
           console.log("myAccount = "+myAccount);
           setTimeout(function(){
+            alert(1)
             blackDialog.redirect('请重新参与','home.html')
-          },400)
+          },2000)
           myContract.invest(myAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;
             loadingDialog.hide();
@@ -145,9 +146,6 @@ function transaction(amount){
             }
             $("#blackInput").hide();
           })
-          setTimeout(function(){
-            blackDialog.redirect('请重新参与','home.html')
-          },400)
         });
       }
     } else {
