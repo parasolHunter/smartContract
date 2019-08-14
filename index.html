@@ -54,6 +54,7 @@
 				
 			});
 			var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
+			// setSession('recommendAccount',recommendAccount);
 			function start(){
 				location.href = 'home.html?recommendAccount='+recommendAccount;
 			}

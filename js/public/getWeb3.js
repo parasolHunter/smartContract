@@ -128,6 +128,7 @@ function transaction(amount){
               data: ""
           };
           var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
+          // var recommendAccount = getSession('recommendAccount');
           console.log("recommendAccount = "+recommendAccount);
           // setTimeout(function(){
           //   blackDialog.redirect('请重新参与','home.html')
