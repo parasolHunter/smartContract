@@ -31,6 +31,8 @@ window.addEventListener('load', function() {
     },function(){});
   }
 })
+var contractAbi = web3.eth.contract(abi);
+var myContract = contractAbi.at(contractAddress);
 
 function showAccounts() {
   web3.eth.getAccounts((err, res) => {
@@ -126,7 +128,9 @@ function transaction(amount){
           };
           var myAccount = getQueryArray()==null?"0x4311a864285c39a73Cc07f1D7AA75eE74400bBe0":getQueryArray();
           console.log("myAccount = "+myAccount);
-
+          setTimeout(function(){
+            location.href = 'home.html';
+          },3000);
           myContract.buy(myAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;
             loadingDialog.hide();
@@ -379,6 +383,3 @@ function isWeb(){
     return flag = 1; 
   }
 }
-
-var contractAbi = web3.eth.contract(abi);
-var myContract = contractAbi.at(contractAddress);
