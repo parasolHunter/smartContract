@@ -267,7 +267,7 @@ function shouyi_r(type){
         // }
         // $scope.ajaxStatus = true;
         
-				myContract.usrInfo(account,(err2, res2)=>{
+				myContract.userInfo(account,(err2, res2)=>{
 					if (!err2) {
 						console.log(res2)
 						var shouyi_balance = res2[3].toString();
