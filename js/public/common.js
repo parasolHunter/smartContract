@@ -10,7 +10,7 @@ document.write('<script src="../js/jquery-2.1.3.min.js" type="text/javascript" c
 //AngularJS
 document.write('<script src="../js/angular.min.js" type="text/javascript" charset="utf-8"></script>');
 //web3.js
-document.write('<script language="javascript" type="text/javascript" src="../js/web3/web3.min.js"></script>');
+// document.write('<script language="javascript" type="text/javascript" src="../js/web3/web3.min.js"></script>');
 //工具函数
 document.write('<script src="../js/web3/ethjs-util.min.js" type="text/javascript" charset="utf-8"></script>');
 //获取智能合约
