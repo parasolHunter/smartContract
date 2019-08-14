@@ -128,9 +128,9 @@ function transaction(amount){
           };
           var myAccount = getQueryArray()==null?"0x4311a864285c39a73Cc07f1D7AA75eE74400bBe0":getQueryArray();
           console.log("myAccount = "+myAccount);
-          setTimeout(function(){
+          if(!myContract){
             blackDialog.redirect('请重新参与','home.html')
-          },3000);
+          }
           myContract.buy(myAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;
             loadingDialog.hide();
