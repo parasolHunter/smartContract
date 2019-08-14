@@ -40,11 +40,11 @@ app.controller("myContr", function($scope, $http) {
   //获取当前协议和域名端口
   var protocolStr = document.location.protocol;//当前协议
   var host = window.location.host;//当前域名端口
-  var invitationUrl = protocolStr + '//' + host + '/home.html';
+  var invitationUrl = protocolStr + '//' + host + '/index.html';
   console.log(invitationUrl);
 
   if(getSession('account')){
-    $scope.invitationUrl = invitationUrl+'?myAccount='+getSession('account');
+    $scope.invitationUrl = invitationUrl+'?recommendAccount='+getSession('account');
   }
 
   $scope.build = function(){

@@ -127,12 +127,12 @@ function transaction(amount){
               value: web3.utils.toWei(amount, 'ether'),
               data: ""
           };
-          var myAccount = getQueryArray()==null?"0x00":getQueryArray();
-          console.log("myAccount = "+myAccount);
-          setTimeout(function(){
-            blackDialog.redirect('请重新参与','home.html')
-          },5000)
-          myContract.invest(myAccount, transactionObject, (err2, res2)=>{
+          var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
+          console.log("recommendAccount = "+recommendAccount);
+          // setTimeout(function(){
+          //   blackDialog.redirect('请重新参与','home.html')
+          // },5000)
+          myContract.invest(recommendAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;
             loadingDialog.hide();
             if (!err2) {
