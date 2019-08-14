@@ -17,7 +17,8 @@
 		"tipTitle":"Tips",
 		"point":".",
 		"toLogin":"Return login",
-		"phone":"Enter the correct mobile number or email address"
+		"phone":"Enter the correct mobile number or email address",
+		"isbtns":"(click)"
 	},
 	"inc_slect":{
 		"msg1":"Homepage",

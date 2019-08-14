@@ -7,7 +7,7 @@
         src="img/logo58.png"
         alt="以太联盟"
       />
-      <span>Ethereum Alliance（点击进入）</span>
+      <span>Ethereum Alliance<i ng-if="isbtns == 1" data-localize="general.isbtns">（点击进入）</i></span>
     </div>
     <div ng-click="drop($event)" class="menu flex justifyStart">
       <img src="img/icon/menu@2x.png" />
@@ -23,7 +23,7 @@
 </div>
 <script src="js/lib/sw_lang.js?v=20190805" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
+  var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
   function start(){
     location.href='home.html?recommendAccount='+recommendAccount;
   }
@@ -35,6 +35,10 @@ var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
 
   var etherStr = "";
   var output = "";
+
+  if(window.location.pathname.indexOf("index.html") != -1){
+    $scope.isbtns = 1;
+  }
 
   $scope.showGetBalance = function() {
   if ($scope.ajaxStatus == true) {
