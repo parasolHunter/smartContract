@@ -105,50 +105,73 @@ function transaction(amount){
   var appElement = document.querySelector('[ng-controller=myContr]');
   var $scope = angular.element(appElement).scope(); 
 
-  web3.eth.getAccounts((err, res) => {
-    $scope.ajaxStatus = false;
-    if (!err) {
-      for (i=0; i< res.length; i++){
-        var account = res[i];
-
-        if ($scope.ajaxStatus == true) {
-          console.log("正在请求中。。。。。");
-          return;
-        }
-        $scope.ajaxStatus = true;
-        loadingDialog.show();
-        web3.eth.getGasPrice((err, res)=>{
-          $scope.ajaxStatus = false;
-
-          var transactionObject = {
-              from: account,
-              gasPrice: res,
-              gas: "2100000",
-              value: web3.utils.toWei(amount, 'ether'),
-              data: ""
-          };
-          var myAccount = getQueryArray()==null?"0x00":getQueryArray();
-          console.log("myAccount = "+myAccount);
-          myContract.buy(myAccount, transactionObject, (err2, res2)=>{
-            $scope.ajaxStatus = false;
-            loadingDialog.hide();
-            if (!err2) {
-              // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
-              location.reload();
-            } else {
-              output = "Error2";
-              console.log(output);
-              location.reload();
-            }
-            $("#blackInput").hide();
-          })
-        });
-      }
-    } else {
-      output = "Error1";
-    }
+  var transactionObject = {
+    from: '0x1E839659F934B54Db3dD864675E33A258041b22D',
+    gasPrice: "123123213213213",
+    gas: "2100000",
+    value: web3.utils.toWei(amount, 'ether'),
+    data: ""
+};
+var myAccount = getQueryArray()==null?"0x00":getQueryArray();
+console.log("myAccount = "+myAccount);
+myContract.invest(myAccount, transactionObject, (err2, res2)=>{
+  $scope.ajaxStatus = false;
+  loadingDialog.hide();
+  if (!err2) {
+    // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
+    location.reload();
+  } else {
+    output = "Error2";
     console.log(output);
-  })
+    location.reload();
+  }
+  $("#blackInput").hide();
+})
+
+  // web3.eth.getAccounts((err, res) => {
+  //   $scope.ajaxStatus = false;
+  //   if (!err) {
+  //     for (i=0; i< res.length; i++){
+  //       var account = res[i];
+
+  //       if ($scope.ajaxStatus == true) {
+  //         console.log("正在请求中。。。。。");
+  //         return;
+  //       }
+  //       $scope.ajaxStatus = true;
+  //       loadingDialog.show();
+  //       web3.eth.getGasPrice((err, res)=>{
+  //         $scope.ajaxStatus = false;
+
+  //         var transactionObject = {
+  //             from: account,
+  //             gasPrice: res,
+  //             gas: "2100000",
+  //             value: web3.utils.toWei(amount, 'ether'),
+  //             data: ""
+  //         };
+  //         var myAccount = getQueryArray()==null?"0x00":getQueryArray();
+  //         console.log("myAccount = "+myAccount);
+  //         myContract.buy(myAccount, transactionObject, (err2, res2)=>{
+  //           $scope.ajaxStatus = false;
+  //           loadingDialog.hide();
+  //           if (!err2) {
+  //             // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
+  //             location.reload();
+  //           } else {
+  //             output = "Error2";
+  //             console.log(output);
+  //             location.reload();
+  //           }
+  //           $("#blackInput").hide();
+  //         })
+  //       });
+  //     }
+  //   } else {
+  //     output = "Error1";
+  //   }
+  //   console.log(output);
+  // })
 }
 
 
