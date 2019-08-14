@@ -64,7 +64,7 @@ app.controller("myContr", function($scope, $http) {
         return;
       }
       $scope.ajaxStatus = true;
-  
+      
       transaction(uname);
 		},function(){});
   }

@@ -111,10 +111,10 @@ function transaction(amount){
           return;
         }
         $scope.ajaxStatus = true;
+        loadingDialog.show();
         web3.eth.getGasPrice((err, res)=>{
           $scope.ajaxStatus = false;
-					console.log(res);
-					console.log(res);
+          
 					console.log(res);
 
           var transactionObject = {
@@ -127,6 +127,8 @@ function transaction(amount){
           var myAccount = getQueryArray()==null?"0x4311a864285c39a73Cc07f1D7AA75eE74400bBe0":getQueryArray();
           console.log("myAccount = "+myAccount);
           myContract.buy(myAccount, transactionObject, (err2, res2)=>{
+            $scope.ajaxStatus = false;
+            loadingDialog.hide();
             if (!err2) {
               // web3.eth.getBalance(res[i]) returns an instanceof BigNumber
               location.reload();
