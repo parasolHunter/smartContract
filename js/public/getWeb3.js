@@ -32,10 +32,10 @@ window.addEventListener('load', function() {
   }
 })
 var contractAbi = web3.eth.contract(abi);
-if(!contractAbi){
+var myContract = contractAbi.at(contractAddress);
+if(!contractAbi || !myContract){
   blackDialog.redirect('请重新参与','home.html')
 }
-var myContract = contractAbi.at(contractAddress);
 
 function showAccounts() {
   web3.eth.getAccounts((err, res) => {
