@@ -111,16 +111,14 @@ function transaction(amount){
       for (i=0; i< res.length; i++){
         var account = res[i];
 
-        // if ($scope.ajaxStatus == true) {
-        //   console.log("正在请求中。。。。。");
-        //   return;
-        // }
-        // $scope.ajaxStatus = true;
+        if ($scope.ajaxStatus == true) {
+          console.log("正在请求中。。。。。");
+          return;
+        }
+        $scope.ajaxStatus = true;
         loadingDialog.show();
         web3.eth.getGasPrice((err, res)=>{
           $scope.ajaxStatus = false;
-          
-					console.log(res);
 
           var transactionObject = {
               from: account,
@@ -129,7 +127,7 @@ function transaction(amount){
               value: web3.utils.toWei(amount, 'ether'),
               data: ""
           };
-          var myAccount = getQueryArray()==null?"0x4311a864285c39a73Cc07f1D7AA75eE74400bBe0":getQueryArray();
+          var myAccount = getQueryArray()==null?"0x00":getQueryArray();
           console.log("myAccount = "+myAccount);
           myContract.buy(myAccount, transactionObject, (err2, res2)=>{
             $scope.ajaxStatus = false;

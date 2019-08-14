@@ -86,7 +86,7 @@ const abi = [
 				"type": "address"
 			}
 		],
-		"name": "usrInfo",
+		"name": "userInfo",
 		"outputs": [
 			{
 				"name": "",
@@ -125,7 +125,7 @@ const abi = [
 				"type": "address"
 			}
 		],
-		"name": "buy",
+		"name": "invest",
 		"outputs": [],
 		"payable": true,
 		"stateMutability": "payable",
