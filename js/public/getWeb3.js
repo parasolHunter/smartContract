@@ -160,7 +160,7 @@ function home(){
 	myContract.staticIncome((err, res)=>{
 		if (!err) {
 			var staticIncomeWei = res.toString();
-			$(".staticIncome").text(web3.utils.fromWei(staticIncomeWei, 'ether').toFixed(6))
+			$(".staticIncome").text(Number(web3.utils.fromWei(staticIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -169,7 +169,7 @@ function home(){
 	myContract.globalIncome((err, res)=>{
 		if (!err) {
 			var globalIncomeWei = res.toString();
-			$(".globalIncome").text(web3.utils.fromWei(globalIncomeWei, 'ether').toFixed(6))
+			$(".globalIncome").text(Number(web3.utils.fromWei(globalIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -178,7 +178,7 @@ function home(){
 	myContract.luckyIncome((err, res)=>{
 		if (!err) {
 			var luckyIncomeWei = res.toString();
-			$(".luckyIncome").text(web3.utils.fromWei(luckyIncomeWei, 'ether').toFixed(6))
+			$(".luckyIncome").text(Number(web3.utils.fromWei(luckyIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -187,7 +187,7 @@ function home(){
 	myContract.retreatIncome((err, res)=>{
 		if (!err) {
 			var retreatIncomeWei = res.toString();
-			$(".retreatIncome").text(web3.utils.fromWei(retreatIncomeWei, 'ether').toFixed(6))
+			$(".retreatIncome").text(Number(web3.utils.fromWei(retreatIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -196,7 +196,7 @@ function home(){
 	myContract.parentIncome((err, res)=>{
 		if (!err) {
 			var parentIncomeWei = res.toString();
-			$(".parentIncome").text(web3.utils.fromWei(parentIncomeWei, 'ether').toFixed(6))
+			$(".parentIncome").text(Number(web3.utils.fromWei(parentIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
