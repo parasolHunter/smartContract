@@ -272,7 +272,6 @@ function shouyi_r(type){
 						var shouyi_balance = res2[3].toString();
 						var shouyi_sum = res2[5].toString();
 						$(".shouyi_balance").text(Number(web3.utils.fromWei(shouyi_balance, 'ether')).toFixed(6));
-						$(".shouyi_sum").text(Number(web3.utils.fromWei(shouyi_sum, 'ether')).toFixed(6));
 					} else {
 						output = "Error2";
 						console.log(output);
@@ -310,6 +309,8 @@ function shouyi_r(type){
               //   incomeslist[i].amount = Number(web3.utils.fromWei(incomeslist[i].amount.toString(), 'ether')).toFixed(6);
               // }
               $scope.incomeslist = incomeslist;
+              var income_all = res.data.total;
+						  $("#income_all").text(Number(income_all).toFixed(6));
               $scope.$apply();
             }
           },
