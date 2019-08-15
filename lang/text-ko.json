@@ -18,7 +18,7 @@
 		"point":".",
 		"toLogin":"Return login",
 		"phone":"Enter the correct mobile number or email address",
-		"isbtns":"（클릭하여 입력）"
+		"isbtns":"시작"
 	},
 	"inc_slect":{
 		"msg1":"홈페이지",

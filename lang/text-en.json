@@ -18,7 +18,7 @@
 		"point":".",
 		"toLogin":"Return login",
 		"phone":"Enter the correct mobile number or email address",
-		"isbtns":"(click)"
+		"isbtns":"START"
 	},
 	"inc_slect":{
 		"msg1":"Homepage",

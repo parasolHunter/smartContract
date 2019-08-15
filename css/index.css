@@ -1,39 +1,25 @@
 #index .item1 .item1-bg {
   position: relative;
   width: 7.5rem;
-  height: 7.52rem;
-  background: #313445 url("../img/entry.png");
+  height: 8.3rem;
+  background: #313445 url("../img/entry.png?v=2019");
   background-size: 100% 100%;
   -moz-background-size: 100% 100%;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 #index .item1 .joinBtn {
-  width: 1.8rem;
-  height: 0.6rem;
-  line-height: 0.6rem;
+  width: 3.4rem;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  background-image: linear-gradient(0deg, #5b57ed 0%, #5f88fc 100%),
+    linear-gradient(#7b55ff, #7b55ff);
+  background-blend-mode: normal, normal;
   color: #fff;
   text-align: center;
-  margin: 1rem auto;
+  margin: 0 auto 0.3rem;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4x;
-  background: -webkit-linear-gradient(
-    right,
-    #5b57ed,
-    #5f88fc
-  ); /*Safari 5.1-6.0 */
-  background: -o-linear-gradient(
-    right,
-    #5b57ed,
-    #5f88fc
-  ); /* Opera 11.1 - 12.0 */
-  background: -moz-linear-gradient(
-    right,
-    #5b57ed,
-    #5f88fc
-  ); /* Firefox 3.6 - 15 */
-  background: linear-gradient(to right, #5b57ed, #5f88fc); /* 标准的语法 */
-  background-blend-mode: normal, normal;
 }
 #home .item-retreat .item-retreat-bg {
   position: relative;
@@ -51,7 +37,8 @@
   letter-spacing: 0rem;
   color: #ffffff;
 }
-#home .item-retreat .item-retreat-bg .item-retreat-box .item-retreat-text2,.item-retreat-text3 {
+#home .item-retreat .item-retreat-bg .item-retreat-box .item-retreat-text2,
+.item-retreat-text3 {
   font-family: SourceHanSansCN-Medium;
   font-size: 0.3rem;
   font-weight: normal;
