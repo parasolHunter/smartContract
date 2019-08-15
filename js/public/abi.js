@@ -133,4 +133,4 @@ const abi = [
 	}
 ];
 
-const contractAddress = '0xe165b21f02268e5e78e5c2e156693062b17940f5';/* 发布之后在以太坊上生成的合约地址 */
+const contractAddress = '0x04e3cbe81270e9afe54185a3dacd816f581a481e';/* 发布之后在以太坊上生成的合约地址 */
