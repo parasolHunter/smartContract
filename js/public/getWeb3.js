@@ -310,7 +310,7 @@ function shouyi_r(type){
               // }
               $scope.incomeslist = incomeslist;
               var income_all = res.data.total;
-						  $("#income_all").text(Number(income_all).toFixed(6));
+						  $(".income_all").text(Number(income_all).toFixed(6));
               $scope.$apply();
             }
           },
