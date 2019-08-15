@@ -67,6 +67,7 @@
 							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>
 						<div ng-if="tuijianlist">
+
 							<div class="item3-content item3-bg" ng-repeat="k in tuijianlist">
 								<div class="item3-content-text colorfff padding-20-30">
 									<div class="flex">
@@ -75,14 +76,15 @@
 											<img class="marginr10" src="img/index/star_checked.png"/>
 											<img class="marginr10" src="img/index/star_unchecked.png"/>
 										</div>
-										<div class="fonts24 marginl20 color-c7cad3">6-20</div>
+										<div class="fonts24 marginl20 color-c7cad3">{{k.date}}</div>
 									</div>
 									<div class="flex justifyBetween">
-										<div class="item_br width_74P sl-omitted paddingr20">{{k}}</div>
+										<div class="item_br width_74P sl-omitted paddingr20">{{k.address}}</div>
 										<div ng-click="copy(k)" class="re_copyBtn_1 paddingl30 paddingr30 fonts24 borderRadius5">复制</div>
 									</div>
 								</div>
 							</div>
+
 						</div>
 					</div>
 				</div>
