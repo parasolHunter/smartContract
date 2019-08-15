@@ -270,7 +270,7 @@ function shouyi_r(type){
 					if (!err2) {
 						console.log(res2)
 						var shouyi_balance = res2[3].toString();
-						var shouyi_sum = res2[4].toString();
+						var shouyi_sum = res2[5].toString();
 						$(".shouyi_balance").text(Number(web3.utils.fromWei(shouyi_balance, 'ether')).toFixed(6));
 						$(".shouyi_sum").text(Number(web3.utils.fromWei(shouyi_sum, 'ether')).toFixed(6));
 					} else {
