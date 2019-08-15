@@ -164,10 +164,6 @@ body {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
-.backBgbody-login {
-  background: url(../img/menuBg.png) no-repeat center;
-  background-size: 100% 100%;
-}
 /*******头部********/
 header {
   position: relative;

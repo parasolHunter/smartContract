@@ -1,3 +1,39 @@
+#index .item1 .item1-bg {
+  position: relative;
+  width: 7.5rem;
+  height: 7.52rem;
+  background: #313445 url("../img/entry.png");
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+}
+#index .item1 .joinBtn {
+  width: 1.8rem;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  color: #fff;
+  text-align: center;
+  margin: 1rem auto;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4x;
+  background: -webkit-linear-gradient(
+    right,
+    #5b57ed,
+    #5f88fc
+  ); /*Safari 5.1-6.0 */
+  background: -o-linear-gradient(
+    right,
+    #5b57ed,
+    #5f88fc
+  ); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(
+    right,
+    #5b57ed,
+    #5f88fc
+  ); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #5b57ed, #5f88fc); /* 标准的语法 */
+  background-blend-mode: normal, normal;
+}
 #home .item-retreat .item-retreat-bg {
   position: relative;
   margin: 0.3rem auto;
