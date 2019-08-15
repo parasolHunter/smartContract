@@ -20,8 +20,14 @@
 		<div id="main">
 			<header ng-include="'inc_header.html?v=20190820'"></header>
 			<div id="baseContent">
-				<div id="noData">
-					<div class="itemH80">
+				<div id="home">
+					<div class="item1">
+						<div class="item1-bg">
+							<div class="item1-box p-ct paddingl60">
+								<!-- <div ng-click="join()" class="joinBtn" ng-class="{0:'btn-disabled',1:''}[team.global]"><em data-localize="home.msg2">立即参与</em><i> &rarr;</i></div> -->
+								<div ng-click="start()" class="joinBtn"><em data-localize="home.msg2">立即参与</em><i> &rarr;</i></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -47,7 +53,10 @@
 			});
 
 			app.controller("myContr", function($scope, $http) {
-				
+				var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
+				$scope.start = function (){
+					location.href='home.html?recommendAccount='+recommendAccount;
+				}
 			});
 		</script>
 	</body>
