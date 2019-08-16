@@ -776,7 +776,21 @@
   font-size: 0.34rem;
   color: #fff;
 }
-
+.record_lottery {
+  width: 7rem;
+  padding: 0.3rem 0 0.6rem;
+  margin: auto;
+  font-family: SourceHanSansCN-Medium;
+}
+.record_lottery .record_item {
+  height: 2.1rem;
+  padding: 0.6rem 0.5rem;
+  border-radius: 12px;
+  background: url(../img/index/lottery.png) center center no-repeat;
+  background-size: cover;
+  font-size: 0.34rem;
+  color: #fff;
+}
 .record_sy {
   width: 7rem;
   padding: 0.3rem 0;

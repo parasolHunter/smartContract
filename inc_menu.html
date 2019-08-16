@@ -37,7 +37,11 @@
         <img class="paddingr20" src="img/index/tbIcon.png" />
         <div data-localize="inc_slect.msg5">参与记录</div>
       </div>
-      <!-- <div class="item flex" ng-click="redirect(6)">
+      <div class="item flex" ng-click="redirect(6)">
+        <img class="paddingr20" src="img/index/loIcon.png" />
+        <div data-localize="inc_slect.msg7">抽奖记录</div>
+      </div>
+      <!-- <div class="item flex" ng-click="redirect(7)">
         <img class="paddingr20" src="img/index/szIcon.png" />
         <div data-localize="inc_slect.msg9">兑换</div>
       </div> -->
@@ -119,8 +123,11 @@
         location.href = "joins.html?recommendAccount="+recommendAccount;
         break;
       case 6:
-        location.href = "openset.html?recommendAccount="+recommendAccount;
+        location.href = "lottery.html?recommendAccount="+recommendAccount;
         break;
+      case 7:
+      location.href = "openset.html?recommendAccount="+recommendAccount;
+      break;
       default:
         console.log("默认");
     }

@@ -11,38 +11,36 @@
 		<meta http-equiv="cache-control" content="no-siteapp">
 		<meta name="robots" content="INDEX,FOLLOW">
 		<!-- 公共文件 -->
-		<script src="js/public/common.js?v=20190820" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="css/index.css?v=20190820"/>
+		<script src="js/public/common.js?v=20190821" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css?v=20190821"/>
 	</head>
 	<body ng-app="myApp"  ng-controller="myContr">
 		<!-- 引入下拉窗口 -->
 		<div ng-include="'inc_menu.html?v=20190821'"></div>
 		<div id="main">
-			<header ng-include="'inc_header.html?v=20190820'"></header>
+			<header ng-include="'inc_header.html?v=20190821'"></header>
 			<div id="baseContent">
 				<div id="record">
-					<div class="record_join">
+					<div class="record_lottery">
 						<div class="record_item">
 							<div class="fonts60 fontBold shouyi_sum"></div>
 							<div class="fonts24" data-localize="join.msg1">当前在投(ETH)</div>
-							<div class="joinBtn" data-localize="home.msg2" ng-click="join()">立即参与 &rarr;</div>
 						</div>
 					</div>
 					
 					<div class="item3">
-						<div class="item3-title itemH100 paddingl60" data-localize="join.msg2">投资记录</div>
-						<div ng-if="joinslist" class="item3-content item3-bg" ng-repeat="k in joinslist">
+						<div class="item3-title itemH100 paddingl60" data-localize="lottery.msg1">发放详情</div>
+						<div ng-if="joinslist" class="item3-content item3-bg">
 							<div class="item3-content-text colorfff padding-20-50">
-								<div class="flex justifyBetween height65">
-									<div class="color-c7cad3 fonts36">+{{k.amount}}</div>
-									<div class="fonts24 textRight">
-										<div ng-class="{0:'color-red',1:'color-green',2:'color-c7cad3'}[k.status]">{{k.type == 1 ? '进行中':(k.type == 0 ? '已出局':'已结束')}}</div>
-										<div>{{k.date}}</div>
+								<div class="flex justifyBetween height80">
+									<div class="color-c7cad3 fonts24 span70 break overhidden">0x1E839659F934B54Db3dD864675E33A258041b22D</div>
+									<div class="fonts36 textRight">
+										<div class="color-red">+123</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div ng-if="joinslist.length <= 0" class="noneRecord flex justifyCenter flexColumn">
+						<div ng-if="!joinslist" class="noneRecord flex justifyCenter flexColumn">
 							<img class="width_300 margint100" src="img/index/none.png"/>
 							<div class="text color-white fonts26 margint10" data-localize="general.noData">暂无数据</div>
 						</div>
@@ -51,5 +49,5 @@
 			</div>
 		</div>
 	</body>
-	<script src="js/script/joins.js?v=20190805" type="text/javascript" charset="utf-8"></script>
+	<script src="js/script/lottery.js?v=20190806" type="text/javascript" charset="utf-8"></script>
 </html>

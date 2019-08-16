@@ -26,7 +26,8 @@
 		"msg3":"Recommendation",
 		"msg4":"Income record",
 		"msg5":"Participation record",
-		"msg6":"exchange"
+		"msg6":"exchange",
+		"msg7":"Lottery record"
 	},
 	"home": {
 		"msg1":"Participate in the prize pool",
@@ -64,6 +65,9 @@
 	"join":{
 	    "msg1":"Currently casting",
 	    "msg2":"Investment record"
+	},
+	"lottery":{
+	    "msg1":"Release details"
 	}
 }
 	

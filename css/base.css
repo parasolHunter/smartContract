@@ -372,6 +372,9 @@ header .add img {
 .break{
   word-break: break-all;
 }
+.overhidden{
+  overflow: hidden;
+}
 /***单行省略***/
 .sl-omitted {
   overflow: hidden;
@@ -1146,6 +1149,9 @@ select {
 }
 .height65 {
   height: 0.65rem;
+}
+.height80 {
+  height: 0.8rem;
 }
 .height115 {
   height: 1.15rem;
