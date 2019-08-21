@@ -1436,6 +1436,14 @@ select {
   display: block;
   width: 60%;
 }
+.span65 {
+  display: block;
+  width: 65%;
+}
+.span68 {
+  display: block;
+  width: 68%;
+}
 .span70 {
   display: block;
   width: 70%;

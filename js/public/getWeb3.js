@@ -377,6 +377,42 @@ function tuijian (){
     console.log(output);
   })
 }
+//tuijian
+function lottery (){
+  var appElement = document.querySelector('[ng-controller=myContr]');
+  var $scope = angular.element(appElement).scope(); 
+
+  // var _url = 'http://192.168.2.205:1520/luckyDogs';
+  var _url = '/api/luckyDogs';
+
+  $.ajax({
+    url: _url,
+    type: 'GET',
+    dataType: 'json',
+    // headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+    // headers: {'Content-Type': 'application/json;charset=UTF-8'},
+    //跨域
+    // xhrFields: {
+    //     withCredentials: true
+    // },
+    // crossDomain: true,
+    // dataType: 'jsonp',
+    timeout: 30000,
+    success: function (res) {
+      console.log(res)
+      $scope.zuori = Number(res.data.total).toFixed(6);
+      $scope.lotterylist = res.data.detail;
+
+      $scope.$apply();
+    },
+    error: function (XMLHttpRequest, textStatus) {
+      console.log(XMLHttpRequest, textStatus);
+    },
+    complete: function (XMLHttpRequest, textStatus) {
+    }
+  });
+}
+
 function isWeb(){
   if (typeof web3 == 'undefined') {
     blackConfirm.show("No web3? 需要安装MetaMask!",function(){
