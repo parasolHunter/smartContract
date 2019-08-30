@@ -124,7 +124,7 @@ function transaction(amount){
               from: account,
               gasPrice: res*3,
               gas: "2100000",
-              value: web3.utils.toWei(amount, 'wei'),
+              value: web3.utils.toWei(amount, 'ether'),
               data: ""
           };
           var recommendAccount = getQueryArray()==null?"0x00":getQueryArray();
@@ -160,7 +160,7 @@ function home(){
 	myContract.staticIncome((err, res)=>{
 		if (!err) {
 			var staticIncomeWei = res.toString();
-			$(".staticIncome").text(Number(web3.utils.fromWei(staticIncomeWei, 'wei')).toFixed(6))
+			$(".staticIncome").text(Number(web3.utils.fromWei(staticIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -169,7 +169,7 @@ function home(){
 	myContract.globalIncome((err, res)=>{
 		if (!err) {
 			var globalIncomeWei = res.toString();
-			$(".globalIncome").text(Number(web3.utils.fromWei(globalIncomeWei, 'wei')).toFixed(6))
+			$(".globalIncome").text(Number(web3.utils.fromWei(globalIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -178,7 +178,7 @@ function home(){
 	myContract.luckyIncome((err, res)=>{
 		if (!err) {
 			var luckyIncomeWei = res.toString();
-			$(".luckyIncome").text(Number(web3.utils.fromWei(luckyIncomeWei, 'wei')).toFixed(6))
+			$(".luckyIncome").text(Number(web3.utils.fromWei(luckyIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -187,7 +187,7 @@ function home(){
 	myContract.retreatIncome((err, res)=>{
 		if (!err) {
 			var retreatIncomeWei = res.toString();
-			$(".retreatIncome").text(Number(web3.utils.fromWei(retreatIncomeWei, 'wei')).toFixed(6))
+			$(".retreatIncome").text(Number(web3.utils.fromWei(retreatIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -196,7 +196,7 @@ function home(){
 	myContract.parentIncome((err, res)=>{
 		if (!err) {
 			var parentIncomeWei = res.toString();
-			$(".parentIncome").text(Number(web3.utils.fromWei(parentIncomeWei, 'wei')).toFixed(6))
+			$(".parentIncome").text(Number(web3.utils.fromWei(parentIncomeWei, 'ether')).toFixed(6))
 		} else {
 			output = "Error2";
 			console.log(output);
@@ -271,8 +271,8 @@ function shouyi_r(type){
 						console.log(res2)
 						var shouyi_balance = res2[3].toString();
 						var shouyi_sum = res2[5].toString();
-						$(".shouyi_balance").text(Number(web3.utils.fromWei(shouyi_balance, 'wei')).toFixed(6));
-						$(".shouyi_sum").text(Number(web3.utils.fromWei(shouyi_sum, 'wei')).toFixed(6));
+						$(".shouyi_balance").text(Number(web3.utils.fromWei(shouyi_balance, 'ether')).toFixed(6));
+						$(".shouyi_sum").text(Number(web3.utils.fromWei(shouyi_sum, 'ether')).toFixed(6));
 					} else {
 						output = "Error2";
 						console.log(output);
@@ -300,14 +300,14 @@ function shouyi_r(type){
             if(type == 'join'){
               var joinslist = res.data.detail;
               // for(var i = 0; i < joinslist.length; i++){
-              //   joinslist[i].amount = Number(web3.utils.fromWei(joinslist[i].amount.toString(), 'wei')).toFixed(6);
+              //   joinslist[i].amount = Number(web3.utils.fromWei(joinslist[i].amount.toString(), 'ether')).toFixed(6);
               // }
               $scope.joinslist = joinslist;
               $scope.$apply();
             }else if(type == 'income'){
               var incomeslist = res.data.detail;
               // for(var i = 0; i < incomeslist.length; i++){
-              //   incomeslist[i].amount = Number(web3.utils.fromWei(incomeslist[i].amount.toString(), 'wei')).toFixed(6);
+              //   incomeslist[i].amount = Number(web3.utils.fromWei(incomeslist[i].amount.toString(), 'ether')).toFixed(6);
               // }
               $scope.incomeslist = incomeslist;
               var income_all = res.data.total;
