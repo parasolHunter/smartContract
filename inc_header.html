@@ -71,7 +71,7 @@
             console.log(res2);
             output += "balance = "+res2+" (wei),";
             var wei = res2.toString();
-            etherStr +=  web3.utils.fromWei(wei, 'ether')+",";
+            etherStr +=  web3.utils.fromWei(wei, 'wei')+",";
           } else {
             output = "Error2";
           }

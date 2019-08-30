@@ -29,7 +29,7 @@ app.controller("myContr", function($scope, $http) {
     //   if (!err) {
     //     console.log(res)
     //     var parentIncomeWei = res.c[1].toString();
-    //     $(".parentIncome").text(web3.utils.fromWei(parentIncomeWei, 'ether'))
+    //     $(".parentIncome").text(web3.utils.fromWei(parentIncomeWei, 'wei'))
     //   } else {
     //     output = "Error2";
     //     console.log(output);
