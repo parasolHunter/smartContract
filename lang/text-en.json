@@ -68,6 +68,9 @@
 	},
 	"lottery":{
 	    "msg1":"Release details yesterday"
+	},
+	"menu":{
+		"msg1":"Please participate in the game first"
 	}
 }
 	

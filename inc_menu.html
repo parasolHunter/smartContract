@@ -114,6 +114,11 @@
         location.href = "#remark?recommendAccount="+recommendAccount;
         break;
       case 3:
+      var fxFlag = getSession("fxFlag");
+        if(fxFlag == 'false'){
+          blackDialog.show(retData.menu.msg1);
+          return false
+        }
         location.href = "recommend.html?recommendAccount="+recommendAccount;
         break;
       case 4:

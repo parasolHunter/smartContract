@@ -11,21 +11,27 @@ $(function(){
 	if(getCookie("language") == "cn") {
 		$(".select-curr").attr("src","../img/icon/cn.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "cn"}); 
+		jsonCall({pathPrefix: "../lang", language: "cn", dataType: "json"});
 	}else if(getCookie("language") == "en"){
 		$(".select-curr").attr("src","../img/icon/en.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "en"});
+		jsonCall({pathPrefix: "../lang", language: "en", dataType: "json"});
 	}else if(getCookie("language") == "td"){
 		$(".select-curr").attr("src","../img/icon/td.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "td"});
+		jsonCall({pathPrefix: "../lang", language: "td", dataType: "json"});
 	}else if(getCookie("language") == "jp"){
 		$(".select-curr").attr("src","../img/icon/jp.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "jp"});
+		jsonCall({pathPrefix: "../lang", language: "jp", dataType: "json"});
 	}else if(getCookie("language") == "ko"){
 		$(".select-curr").attr("src","../img/icon/ko.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "ko"});
+		jsonCall({pathPrefix: "../lang", language: "ko", dataType: "json"});
 	}else{
 		$(".select-curr").attr("src","../img/icon/en.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "en"});
+		jsonCall({pathPrefix: "../lang", language: "en", dataType: "json"});
 	}
 });
 
@@ -36,18 +42,23 @@ function chgLang(lang) {
 	if(lang == "cn") {
 		$(".select-curr").attr("src","../img/icon/cn.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "cn"}); 
+		jsonCall({pathPrefix: "../lang", language: "cn", dataType: "json"});
 	}else if(lang == "en"){
 		$(".select-curr").attr("src","../img/icon/en.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "en"});
+		jsonCall({pathPrefix: "../lang", language: "en", dataType: "json"});
 	}else if(lang == "td"){
 		$(".select-curr").attr("src","../img/icon/td.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "td"});
+		jsonCall({pathPrefix: "../lang", language: "td", dataType: "json"});
 	}else if(lang == "jp"){
 		$(".select-curr").attr("src","../img/icon/jp.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "jp"});
+		jsonCall({pathPrefix: "../lang", language: "jp", dataType: "json"});
 	}else if(lang == "ko"){
 		$(".select-curr").attr("src","../img/icon/ko.png");
 		$("[data-localize]").localize("text", {pathPrefix: "../lang", language: "ko"});
+		jsonCall({pathPrefix: "../lang", language: "ko", dataType: "json"});
 	}
 }
 //切换选项框

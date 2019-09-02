@@ -34,4 +34,4 @@ document.write('<script src="../js/public/public.js?v=20181022" type="text/javas
 //切换静态语言包
 document.write('<script src="../js/jquery.localize.min.js" type="text/javascript" charset="utf-8"></script>'); 
 //请求语言包json
-// document.write('<script src="../js/public/getJson.js" type="text/javascript" charset="utf-8"></script>');
+document.write('<script src="../js/public/getJson.js" type="text/javascript" charset="utf-8"></script>');

@@ -19,7 +19,7 @@ var jsonCall = function(options) {
 			loadingDialog.show();//显示屏蔽层
 		},
 		success: function (ret) {
-			console.log(ret);
+			// console.log(ret);
 //			localStorage.setItem("retDatas",JSON.stringify(ret));
 			return retData = ret;
 		},
@@ -35,8 +35,16 @@ var jsonCall = function(options) {
 	return $.ajax(ajaxOptions);
 };
 
-if(getCookie("language") == "en") {
+if(getCookie("language") == "cn") {
+	jsonCall({pathPrefix: "../lang", language: "cn", dataType: "json"});
+}else if(getCookie("language") == "en"){
 	jsonCall({pathPrefix: "../lang", language: "en", dataType: "json"});
+}else if(getCookie("language") == "td"){
+	jsonCall({pathPrefix: "../lang", language: "td", dataType: "json"});
+}else if(getCookie("language") == "jp"){
+	jsonCall({pathPrefix: "../lang", language: "jp", dataType: "json"});
+}else if(getCookie("language") == "ko"){
+	jsonCall({pathPrefix: "../lang", language: "ko", dataType: "json"});
 }else{
-	jsonCall({pathPrefix: "../lang", language: "cn", dataType: "json"});	
+	jsonCall({pathPrefix: "../lang", language: "cn", dataType: "json"});
 }
