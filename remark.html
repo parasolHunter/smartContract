@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>			
+		<title>Ethereum Alliance</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<meta content="telephone=no,email=no" name="format-detection">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;">
+		<meta content="yes" name="apple-mobile-web-app-capable"> 
+		<meta content="yes" name="apple-touch-fullscreen">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="cache-control" content="no-siteapp">
+		<meta name="robots" content="INDEX,FOLLOW">
+		<!-- 公共文件 -->
+        <script src="js/public/common.js?v=20190837" type="text/javascript" charset="utf-8"></script>
+        <style>
+            img{
+                display: block;
+                width: 100%;
+            }
+        </style>
+	</head>
+	<body ng-app="myApp"  ng-controller="myContr">
+		<!-- 引入下拉窗口 -->
+		<div ng-include="'inc_menu.html?v=20190824'"></div>
+		<div id="main">
+			<header ng-include="'inc_header.html?v=20190822'"></header>
+			<div id="baseContent">
+                <img src="../img/remark.jpg" alt="">
+			</div>
+        </div>
+        <script>
+            //ng渲染创业数据
+            var app = angular.module("myApp", []);
+
+            //自定义repeat完成指令
+            app.directive("repeatFinish", function($timeout) {
+            return {
+                restrict: "A",
+                link: function(scope, elem, attr) {
+                //当前循环至最后一个
+                if (scope.$last === true) {
+                    $timeout(function() {
+                    //向父控制器传递事件消息
+                    scope.$eval(attr.repeatFinish); // 执行绑定的表达式
+                    }, 100);
+                }
+                }
+            };
+            });
+
+            app.controller("myContr", function($scope, $http) {
+
+            });
+        </script>
+	</body>
+</html>

@@ -21,10 +21,10 @@
         <img class="paddingr20" src="img/index/jyIcon.png" />
         <div data-localize="inc_slect.msg1" >主页</div>
       </div>
-      <!-- <div class="item flex" ng-click="redirect(2)">
+      <div class="item flex" ng-click="redirect(2)">
         <img class="paddingr20" src="img/index/syIcon.png" />
         <div data-localize="inc_slect.msg2">玩法说明</div>
-      </div> -->
+      </div>
       <div class="item flex" ng-click="redirect(3)">
         <img class="paddingr20" src="img/index/czIcon.png" />
         <div data-localize="inc_slect.msg3">我的推荐</div>
@@ -111,7 +111,7 @@
         location.href = "home.html?recommendAccount="+recommendAccount;
         break;
       case 2:
-        location.href = "#remark?recommendAccount="+recommendAccount;
+        location.href = "remark.html?recommendAccount="+recommendAccount;
         break;
       case 3:
       var fxFlag = getSession("fxFlag");
