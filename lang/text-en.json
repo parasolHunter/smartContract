@@ -67,7 +67,8 @@
 	    "msg2":"Investment record"
 	},
 	"lottery":{
-	    "msg1":"Release details yesterday"
+	    "msg1":"Release details yesterday",
+	    "msg2":"Yesterday's lottery prize pool"
 	},
 	"menu":{
 		"msg1":"Please participate in the game first"
