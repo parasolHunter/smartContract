@@ -2,7 +2,7 @@ const abi = [
 	{
         "constant": true,
         "inputs": [],
-        "name": "staticIncome",
+        "name": "_staticIncome",
         "outputs": [
             {
                 "name": "",
@@ -16,7 +16,7 @@ const abi = [
 	{
         "constant": true,
         "inputs": [],
-        "name": "globalIncome",
+        "name": "_globalIncome",
         "outputs": [
             {
                 "name": "",
@@ -30,7 +30,7 @@ const abi = [
 	{
         "constant": true,
         "inputs": [],
-        "name": "luckyIncome",
+        "name": "_luckyIncome",
         "outputs": [
             {
                 "name": "",
@@ -44,7 +44,7 @@ const abi = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "retreatIncome",
+		"name": "_retreatIncome",
 		"outputs": [
 			{
 				"name": "",
@@ -58,7 +58,7 @@ const abi = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "parentIncome",
+		"name": "_parentIncome",
 		"outputs": [
 			{
 				"name": "",

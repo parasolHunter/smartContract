@@ -122,7 +122,7 @@ function transaction(amount){
 
           var transactionObject = {
               from: account,
-              gasPrice: res,
+              gasPrice: res*3,
               gas: "2100000",
               value: web3.utils.toWei(amount, 'ether'),
               data: ""
@@ -157,7 +157,7 @@ function transaction(amount){
 
 //home
 function home(){
-	myContract.staticIncome((err, res)=>{
+	myContract._staticIncome((err, res)=>{
 		if (!err) {
 			var staticIncomeWei = res.toString();
 			$(".staticIncome").text(Number(web3.utils.fromWei(staticIncomeWei, 'ether')).toFixed(6))
@@ -166,7 +166,7 @@ function home(){
 			console.log(output);
 		}
 	});
-	myContract.globalIncome((err, res)=>{
+	myContract._globalIncome((err, res)=>{
 		if (!err) {
 			var globalIncomeWei = res.toString();
 			$(".globalIncome").text(Number(web3.utils.fromWei(globalIncomeWei, 'ether')).toFixed(6))
@@ -175,7 +175,7 @@ function home(){
 			console.log(output);
 		}
 	});
-	myContract.luckyIncome((err, res)=>{
+	myContract._luckyIncome((err, res)=>{
 		if (!err) {
 			var luckyIncomeWei = res.toString();
 			$(".luckyIncome").text(Number(web3.utils.fromWei(luckyIncomeWei, 'ether')).toFixed(6))
@@ -184,7 +184,7 @@ function home(){
 			console.log(output);
 		}
 	});
-	myContract.retreatIncome((err, res)=>{
+	myContract._retreatIncome((err, res)=>{
 		if (!err) {
 			var retreatIncomeWei = res.toString();
 			$(".retreatIncome").text(Number(web3.utils.fromWei(retreatIncomeWei, 'ether')).toFixed(6))
@@ -193,7 +193,7 @@ function home(){
 			console.log(output);
 		}
 	});
-	myContract.parentIncome((err, res)=>{
+	myContract._parentIncome((err, res)=>{
 		if (!err) {
 			var parentIncomeWei = res.toString();
 			$(".parentIncome").text(Number(web3.utils.fromWei(parentIncomeWei, 'ether')).toFixed(6))
