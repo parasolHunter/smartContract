@@ -27,7 +27,8 @@
 		"msg4":"Income record",
 		"msg5":"Participation record",
 		"msg6":"exchange",
-		"msg7":"Lottery record"
+		"msg7":"Lottery record",
+		"msg8":"Participation rules"
 	},
 	"home": {
 		"msg1":"Participate in the prize pool",
