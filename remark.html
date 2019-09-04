@@ -25,7 +25,7 @@
 		<div id="main">
 			<header ng-include="'inc_header.html?v=20190822'"></header>
 			<div id="baseContent">
-                <img src="../img/remark.jpg?v=20190823" alt="">
+                <img class="remark_src" ng-src="{{remark_src}}" alt="">
 			</div>
         </div>
         <script>
@@ -49,7 +49,17 @@
             });
 
             app.controller("myContr", function($scope, $http) {
-
+                if(getCookie("language") == "cn"){
+                    $scope.remark_src = '../img/remark/remark_cn.png?v=20190824';
+                }else if(getCookie("language") == "en"){
+                    $scope.remark_src = '../img/remark/remark_en.bmp?v=20190824';
+                }else if(getCookie("language") == "jp"){
+                    $scope.remark_src = '../img/remark/remark_jp.png?v=20190824';
+                }else if(getCookie("language") == "ko"){
+                    $scope.remark_src = '../img/remark/remark_ko.png?v=20190824';
+                }else if(getCookie("language") == "td"){
+                    $scope.remark_src = '../img/remark/remark_td.png?v=20190824';
+                }
             });
         </script>
 	</body>

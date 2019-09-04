@@ -1,3 +1,10 @@
+#index .item1{
+  width: 7.5rem;
+  height: 13.34rem;
+  background: url("../img/start.png?v=2019") no-repeat center;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+}
 #index .item1 .item1-bg {
   position: relative;
   width: 7.5rem;
